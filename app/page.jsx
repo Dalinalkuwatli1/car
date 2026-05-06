@@ -23,11 +23,3 @@ export default function Home() {
   );
 }
 
-export default function Home() {
-  return (
-    <div style={{ background: "black", color: "white", height: "100vh", padding: "20px" }}>
-      <h1>Velox Rentals 🚗</h1>
-      <p>إذا شايف هاد الكلام → الموقع شغال 100%</p>
-    </div>
-  );
-}
