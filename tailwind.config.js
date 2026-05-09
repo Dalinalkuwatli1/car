@@ -11,10 +11,12 @@ module.exports = {
         graphite: { DEFAULT: "#1c1c1e", 400: "#6e6e73", 500: "#3a3a3c", 600: "#2c2c2e", 700: "#1c1c1e", 800: "#141416" },
         gold: { DEFAULT: "#c9a84c", 300: "#e9c15f", 400: "#dca83a", 500: "#c9a84c", 600: "#b08a2e", 700: "#8a6a22" },
         platinum: { DEFAULT: "#e8e8e8", 100: "#f5f5f5", 200: "#e8e8e8", 300: "#d4d4d4", 400: "#a3a3a3", 500: "#737373" },
+        success: { DEFAULT: "#00FF99" },
+        error: { DEFAULT: "#FF4D4D" },
       },
       fontFamily: {
-        display: ["var(--font-syne)", "sans-serif"],
-        body: ["var(--font-dm-sans)", "sans-serif"],
+        display: ["var(--font-poppins)", "sans-serif"],
+        body: ["var(--font-inter)", "sans-serif"],
       },
       backgroundImage: {
         "gold-gradient": "linear-gradient(135deg, #c9a84c 0%, #e9c15f 50%, #b08a2e 100%)",

@@ -6,8 +6,10 @@ import Button from "@/components/ui/Button";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "Fleet", href: "/cars" },
-  { label: "About", href: "#about" },
+  { label: "Inventory", href: "/cars" },
+  { label: "Brands", href: "#brands" },
+  { label: "Services", href: "#services" },
+  { label: "About Us", href: "#about" },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -71,16 +73,16 @@ export default function Navbar() {
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-5">
               <Link 
-                href="/cars" 
-                className="text-[13px] font-body font-semibold tracking-[0.15em] text-platinum-300 hover:text-white transition-colors duration-300 uppercase"
+                href="/login" 
+                className="px-6 py-2.5 text-[13px] font-body font-semibold tracking-[0.1em] text-white bg-transparent border border-gold hover:bg-gold hover:text-black transition-all duration-300 uppercase rounded-xl hover:scale-105"
               >
-                View Fleet
+                Sign In
               </Link>
               <Link 
-                href="/cars" 
-                className="px-7 py-3 text-[13px] font-body font-semibold tracking-[0.15em] text-obsidian-900 bg-gold hover:bg-white transition-all duration-500 uppercase rounded-full shadow-gold hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+                href="/list-car" 
+                className="px-7 py-3 text-[13px] font-body font-semibold tracking-[0.1em] text-obsidian-900 bg-gold hover:bg-gold-light hover:-translate-y-0.5 transition-all duration-300 uppercase rounded-full shadow-md hover:shadow-[0_0_25px_rgba(201,168,76,0.5)]"
               >
-                Book a Car
+                List Your Car
               </Link>
             </div>
 
@@ -140,18 +142,18 @@ export default function Navbar() {
           </nav>
           <div className="px-4 pb-8 flex flex-col gap-4">
             <Link 
-              href="/cars" 
+              href="/login" 
               onClick={() => setMenuOpen(false)}
-              className="w-full text-center px-6 py-4 text-xs font-body font-semibold tracking-widest text-platinum-300 border border-white/10 rounded-full hover:bg-white/5 transition-colors duration-300 uppercase"
+              className="w-full text-center px-6 py-4 text-xs font-body font-semibold tracking-widest text-white border border-gold rounded-xl hover:bg-gold hover:text-black transition-all duration-300 uppercase"
             >
-              View Fleet
+              Sign In
             </Link>
             <Link 
-              href="/cars" 
+              href="/list-car" 
               onClick={() => setMenuOpen(false)}
-              className="w-full text-center px-6 py-4 text-xs font-body font-semibold tracking-widest text-obsidian-900 bg-gold hover:bg-white transition-all duration-500 uppercase rounded-full shadow-gold"
+              className="w-full text-center px-6 py-4 text-xs font-body font-semibold tracking-widest text-obsidian-900 bg-gold hover:bg-gold-light transition-all duration-500 uppercase rounded-full shadow-md"
             >
-              Book a Car
+              List Your Car
             </Link>
           </div>
         </div>

@@ -8,13 +8,13 @@ export default function FeaturedCars() {
   const featured = getFeaturedCars(cars).slice(0, 6);
 
   return (
-    <section className="section-padding bg-obsidian-900">
+    <section className="pt-8 pb-20 bg-obsidian-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
           <SectionHeader
             eyebrow="Curated Selection"
-            heading={<>Featured <span className="text-gold-gradient bg-gold-gradient [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background-clip:text]">Vehicles</span></>}
-            subtext="Handpicked from our premium fleet — each car a statement in its own right."
+            heading={<><span className="text-white">Featured</span> <span className="text-gold">Vehicles</span></>}
+            subtext={<span className="text-platinum-400 font-light tracking-wide">Handpicked from our premium fleet — each car a statement in its own right.</span>}
             align="left"
           />
           <Button href="/cars" variant="secondary" size="md" className="shrink-0">
