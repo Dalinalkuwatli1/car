@@ -36,48 +36,52 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
           scrolled
-            ? "bg-obsidian-900/95 backdrop-blur-xl border-b border-white/5 shadow-nav py-3"
-            : "bg-transparent py-5"
+            ? "bg-obsidian-900/60 backdrop-blur-2xl border-b border-white/5 shadow-nav py-4"
+            : "bg-gradient-to-b from-obsidian-900/80 via-obsidian-900/20 to-transparent py-6"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between relative">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group" aria-label="Velox Rentals home">
-              <div className="relative w-9 h-9 flex items-center justify-center">
-                <div className="absolute inset-0 bg-gold-gradient rounded-lg opacity-90 group-hover:opacity-100 transition-opacity" />
-                <svg className="relative z-10 w-5 h-5 text-obsidian-900" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M21.739 10.921c-1.347-.39-1.885-.572-3.516-1.01C17.219 8.589 15.78 7 15 7H5c-1.5 0-2.474 1.12-3 3.5L1 15.5V18h1.5c0 1.381 1.119 2.5 2.5 2.5S7.5 19.381 7.5 18h9c0 1.381 1.119 2.5 2.5 2.5s2.5-1.119 2.5-2.5H23v-4.5c0-.5-.853-.869-1.261-.079zM5 8.5h9.5l1.5 3.5H5.5L5 8.5zM5 19c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1zm14 0c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z"/>
-                </svg>
-              </div>
-              <span className="font-display font-bold text-xl tracking-widest text-white uppercase">
+            <Link href="/" className="flex items-center gap-2.5 group" aria-label="Velox Rentals home">
+              <svg className="w-7 h-7 text-gold transition-transform duration-500 group-hover:scale-105" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M21.739 10.921c-1.347-.39-1.885-.572-3.516-1.01C17.219 8.589 15.78 7 15 7H5c-1.5 0-2.474 1.12-3 3.5L1 15.5V18h1.5c0 1.381 1.119 2.5 2.5 2.5S7.5 19.381 7.5 18h9c0 1.381 1.119 2.5 2.5 2.5s2.5-1.119 2.5-2.5H23v-4.5c0-.5-.853-.869-1.261-.079zM5 8.5h9.5l1.5 3.5H5.5L5 8.5zM5 19c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1zm14 0c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z"/>
+              </svg>
+              <span className="font-display font-light text-2xl tracking-[0.2em] text-white uppercase group-hover:text-gold transition-colors duration-500">
                 VELOX
               </span>
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="px-4 py-2 text-sm font-body font-medium text-platinum-400 hover:text-white transition-colors duration-200 hover-underline rounded-lg hover:bg-white/5"
+                  className="relative text-[13px] font-body font-medium text-platinum-400 hover:text-white transition-colors duration-300 tracking-wider uppercase group"
                 >
                   {link.label}
+                  <span className="absolute -bottom-1.5 left-1/2 w-0 h-px bg-gold group-hover:w-full transition-all duration-500 -translate-x-1/2 opacity-0 group-hover:opacity-100" />
                 </Link>
               ))}
             </nav>
 
             {/* Desktop CTA */}
-            <div className="hidden md:flex items-center gap-3">
-              <Button href="/cars" variant="secondary" size="sm">
+            <div className="hidden md:flex items-center gap-5">
+              <Link 
+                href="/cars" 
+                className="text-[13px] font-body font-semibold tracking-[0.15em] text-platinum-300 hover:text-white transition-colors duration-300 uppercase"
+              >
                 View Fleet
-              </Button>
-              <Button href="/cars" variant="primary" size="sm">
+              </Link>
+              <Link 
+                href="/cars" 
+                className="px-7 py-3 text-[13px] font-body font-semibold tracking-[0.15em] text-obsidian-900 bg-gold hover:bg-white transition-all duration-500 uppercase rounded-full shadow-gold hover:shadow-[0_0_20px_rgba(255,255,255,0.4)]"
+              >
                 Book a Car
-              </Button>
+              </Link>
             </div>
 
             {/* Mobile Hamburger */}
@@ -134,13 +138,21 @@ export default function Navbar() {
               </Link>
             ))}
           </nav>
-          <div className="px-4 pb-8 flex flex-col gap-3">
-            <Button href="/cars" variant="outline" size="md" className="w-full" onClick={() => setMenuOpen(false)}>
+          <div className="px-4 pb-8 flex flex-col gap-4">
+            <Link 
+              href="/cars" 
+              onClick={() => setMenuOpen(false)}
+              className="w-full text-center px-6 py-4 text-xs font-body font-semibold tracking-widest text-platinum-300 border border-white/10 rounded-full hover:bg-white/5 transition-colors duration-300 uppercase"
+            >
               View Fleet
-            </Button>
-            <Button href="/cars" variant="primary" size="md" className="w-full" onClick={() => setMenuOpen(false)}>
+            </Link>
+            <Link 
+              href="/cars" 
+              onClick={() => setMenuOpen(false)}
+              className="w-full text-center px-6 py-4 text-xs font-body font-semibold tracking-widest text-obsidian-900 bg-gold hover:bg-white transition-all duration-500 uppercase rounded-full shadow-gold"
+            >
               Book a Car
-            </Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import cars from "@/data/cars";
-import Gallery from "@/components/cars/Gallery";
 import Button from "@/components/ui/Button";
 import { AvailabilityBadge, TypeBadge } from "@/components/ui/Badge";
 import { formatPrice } from "@/lib/utils";
@@ -45,7 +45,7 @@ export default function CarDetailPage({ params }) {
     acceleration,
     description,
     features,
-    images,
+    image,
     available,
   } = car;
 
@@ -65,9 +65,19 @@ export default function CarDetailPage({ params }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           
-          {/* Left Column: Gallery & Details */}
+          {/* Left Column: Image & Details */}
           <div className="lg:col-span-7 xl:col-span-8 space-y-12">
-            <Gallery images={images} alt={`${brand} ${model}`} />
+            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden bg-graphite-800">
+              <Image
+                src={image}
+                alt={`${brand} ${model}`}
+                fill
+                priority
+                className="object-cover"
+                sizes="(max-width: 1024px) 100vw, 66vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+            </div>
 
             {/* Content section */}
             <div>

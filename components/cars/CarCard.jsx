@@ -27,7 +27,7 @@ export default function CarCard({ car }) {
     fuelType,
     seats,
     year,
-    images,
+    image,
     available,
     badge,
   } = car;
@@ -41,7 +41,7 @@ export default function CarCard({ car }) {
       {/* Image */}
       <div className="relative h-52 overflow-hidden bg-graphite-800">
         <Image
-          src={images[0]}
+          src={image}
           alt={`${brand} ${model}`}
           fill
           className="object-cover transition-transform duration-700 group-hover:scale-105"
