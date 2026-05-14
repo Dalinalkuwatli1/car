@@ -46,21 +46,38 @@ const categories = [
 
 export default function FleetCategories() {
   return (
-    <section className="section-padding bg-obsidian-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <SectionHeader
-          eyebrow="Our Fleet"
-          heading={
-            <>
-              Find Your{" "}
-              <span className="text-gold-gradient bg-gold-gradient [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background-clip:text]">
-                Category
-              </span>
-            </>
-          }
-          subtext="Every occasion deserves the right car. Explore our four fleet segments to find your perfect drive."
-          className="mb-14"
-        />
+    <section
+      style={{ background: "#070707", padding: "120px 0", position: "relative", overflow: "hidden" }}
+    >
+      {/* Top edge line */}
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "1px", background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.12), transparent)" }} />
+
+      <div
+        style={{
+          width: "100%",
+          maxWidth: "1280px",
+          margin: "0 auto",
+          paddingLeft: "clamp(24px, 4vw, 64px)",
+          paddingRight: "clamp(24px, 4vw, 64px)",
+        }}
+      >
+        {/* ── Centered section header ── */}
+        <div style={{ textAlign: "center", maxWidth: "640px", margin: "0 auto 56px auto" }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "20px" }}>
+            <div style={{ width: "28px", height: "1px", background: "linear-gradient(90deg, transparent, #D4AF37)" }} />
+            <span className="font-body font-semibold uppercase" style={{ fontSize: "10px", color: "#D4AF37", letterSpacing: "0.35em" }}>
+              Our Fleet
+            </span>
+            <div style={{ width: "28px", height: "1px", background: "linear-gradient(90deg, #D4AF37, transparent)" }} />
+          </div>
+          <h2 className="font-display font-bold" style={{ fontSize: "clamp(2.2rem, 4vw, 3.8rem)", lineHeight: "1.1", color: "#ffffff", letterSpacing: "-0.02em", marginBottom: "16px" }}>
+            Find Your{" "}
+            <span className="text-gold-gradient">Category</span>
+          </h2>
+          <p className="font-body font-light" style={{ fontSize: "clamp(14px, 1.3vw, 17px)", lineHeight: "1.8", color: "rgba(232,232,232,0.5)" }}>
+            Every occasion deserves the right car. Explore our four fleet segments to find your perfect drive.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {categories.map((cat) => (

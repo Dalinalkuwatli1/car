@@ -1,19 +1,19 @@
-import { Poppins, Inter } from "next/font/google";
+import { Cormorant_Garamond, Barlow_Condensed } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 // Configure Google Fonts
-const poppins = Poppins({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  variable: "--font-poppins",
+  variable: "--font-cormorant",
   display: "swap",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const inter = Inter({
+const barlow = Barlow_Condensed({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-barlow",
   display: "swap",
   weight: ["400", "500", "600", "700"],
 });
@@ -25,7 +25,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${poppins.variable} ${inter.variable} scroll-smooth`}>
+    <html lang="en" className={`${cormorant.variable} ${barlow.variable} scroll-smooth`}>
       <body className="bg-obsidian-900 text-platinum-50 font-body antialiased selection:bg-gold/30 selection:text-gold-light min-h-screen flex flex-col">
         <Navbar />
         <main className="flex-1 flex flex-col">

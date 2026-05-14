@@ -28,9 +28,57 @@ const cars = [
       "Sport Exhaust System",
     ],
     image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/5309381/5309381-hd_1920_1080_25fps.mp4",
     isFeatured: true,
     available: true,
     badge: "Most Popular",
+    doors: 4,
+    luggage: 2,
+    color: "Signature",
+    rating: 4.9,
+    bookingCount: 124,
+    performance: { speed: 95, comfort: 90, luxury: 92, economy: 60 },
+    video: "https://videos.pexels.com/video-files/3141208/3141208-hd_1920_1080_25fps.mp4",
+    gallery: [
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80",
+      "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80",
+      "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80",
+      "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=1200&q=80"
+    ],
+    colors: [
+      {
+        name: "Black Sapphire",
+        hex: "#0b0b0b",
+        gallery: [
+          "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80",
+          "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80",
+          "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80"
+        ]
+      },
+      {
+        name: "Glacier White",
+        hex: "#f5f5f5",
+        gallery: [
+          "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80",
+          "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=1200&q=80",
+          "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80"
+        ]
+      },
+      {
+        name: "Midnight Blue",
+        hex: "#101b3b",
+        gallery: [
+          "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=1200&q=80",
+          "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1200&q=80",
+          "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80"
+        ]
+      }
+    ],
+    reviews: [
+      { customer: "Alexander Sterling", rating: 5, date: "2024-04-12", comment: "An absolutely flawless experience. The car was immaculate and the service was world-class." },
+      { customer: "James R.", rating: 5, date: "2024-03-28", comment: "Exceeded all expectations. Perfect delivery and the vehicle performed beautifully." },
+      { customer: "Michael T.", rating: 4.8, date: "2024-02-15", comment: "Incredible machine. The rental process was smooth and entirely hassle-free." }
+    ],
   },
   {
     id: "2",
@@ -61,6 +109,7 @@ const cars = [
       "Active Rear-Wheel Steering",
     ],
     image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/3752531/3752531-hd_1920_1080_25fps.mp4",
     isFeatured: true,
     available: true,
     badge: "New Arrival",
@@ -93,7 +142,8 @@ const cars = [
       "Gesture Control",
       "Parking Assistant Pro",
     ],
-    image: "https://images.unsplash.com/photo-1555353540-64fd1b046bf2?w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/4488931/4488931-hd_1920_1080_25fps.mp4",
     isFeatured: true,
     available: true,
     badge: null,
@@ -127,6 +177,7 @@ const cars = [
       "Navigation System",
     ],
     image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/4006151/4006151-hd_1920_1080_25fps.mp4",
     isFeatured: true,
     available: false,
     badge: "Exclusive",
@@ -160,6 +211,7 @@ const cars = [
       "Wade Sensing",
     ],
     image: "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/3141208/3141208-hd_1920_1080_25fps.mp4",
     isFeatured: true,
     available: true,
     badge: "Best Seller",
@@ -193,6 +245,7 @@ const cars = [
       "643 km EPA Range",
     ],
     image: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/5309381/5309381-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
     badge: "Electric",
@@ -226,6 +279,7 @@ const cars = [
       "Dynamic Steering",
     ],
     image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/3752531/3752531-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
     badge: null,
@@ -258,7 +312,8 @@ const cars = [
       "Night Vision",
       "Bentley Dynamic Ride",
     ],
-    image: "https://images.unsplash.com/photo-1563694983011-6f4d90358083?w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/4488931/4488931-hd_1920_1080_25fps.mp4",
     isFeatured: true,
     available: true,
     badge: "Ultra Luxury",
@@ -291,7 +346,8 @@ const cars = [
       "Line Lock",
       "Launch Control",
     ],
-    image: "https://images.unsplash.com/photo-1584345604476-8ec5e12e42a5?w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/4006151/4006151-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
     badge: null,
@@ -325,6 +381,7 @@ const cars = [
       "Kinetic Dynamic Suspension System",
     ],
     image: "https://images.unsplash.com/photo-1594502184342-2e12f877aa73?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/3141208/3141208-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
     badge: null,
@@ -358,6 +415,7 @@ const cars = [
       "Park Distance Control",
     ],
     image: "https://images.unsplash.com/photo-1590362891991-f776e747a588?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/5309381/5309381-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
     badge: "Best Value",
@@ -390,7 +448,8 @@ const cars = [
       "9-inch Honda Connect",
       "Track Mode",
     ],
-    image: "https://images.unsplash.com/photo-1604147706283-d7119b5b822c?w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/3752531/3752531-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
     badge: null,
@@ -424,6 +483,7 @@ const cars = [
       "Off-Road Mode",
     ],
     image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/4488931/4488931-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
     badge: "Hybrid",

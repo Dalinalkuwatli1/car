@@ -5,137 +5,242 @@ import Image from "next/image";
 import { useState } from "react";
 import { formatPrice } from "@/lib/utils";
 
-const fuelIcons = {
-  petrol: "⛽",
-  diesel: "🛢",
-  electric: "⚡",
+/* ── Fuel icons ─────────────────────────────────────── */
+const fuelIcons = { petrol: "⛽", diesel: "🛢", electric: "⚡" };
+
+/* ── Type badge config ───────────────────────────────── */
+const typeBadge = {
+  sports:         { bg: "rgba(28,28,28,0.9)",  color: "#d4d4d4", border: "rgba(255,255,255,0.12)" },
+  luxury:         { bg: "rgba(8,8,8,0.75)",    color: "#e8e8e8", border: "rgba(255,255,255,0.18)" },
+  suv:            { bg: "rgba(14,14,14,0.85)", color: "#a3a3a3", border: "rgba(255,255,255,0.10)" },
+  economy:        { bg: "rgba(20,20,20,0.85)", color: "#a3a3a3", border: "rgba(255,255,255,0.08)" },
+  "ultra luxury": { bg: "linear-gradient(135deg,#c9a84c,#e9c15f)", color: "#050505", border: "#c9a84c" },
 };
 
-export default function CarCard({ car }) {
-  const {
-    slug,
-    brand,
-    model,
-    type,
-    pricePerDay,
-    transmission,
-    fuelType,
-    seats,
-    image,
-    available,
-    badge,
-  } = car;
+const GOLD = "#D6B25E";
+const FALLBACK_IMAGE = "/images/default-car.jpg";
 
-  const [imageError, setImageError] = useState(false);
+export default function CarCard({ car, index = 0 }) {
+  const { slug, brand, model, type, pricePerDay, transmission, fuelType, seats, image, available, badge } = car;
 
-  // Helper to determine specific type badge color
-  const getTypeBadgeClass = (type) => {
-    switch(type?.toLowerCase()) {
-      case 'sports': return 'bg-graphite-800 text-platinum-200 border-white/10';
-      case 'luxury': return 'bg-black/40 text-platinum-100 border-white/20';
-      case 'suv': return 'bg-obsidian-900 text-platinum-300 border-white/5';
-      case 'ultra luxury': return 'bg-gold-gradient text-black border-gold';
-      default: return 'bg-black/50 text-platinum-300 border-white/10';
-    }
-  };
+  const [imgSrc, setImgSrc] = useState(image || FALLBACK_IMAGE);
+  const [hovered, setHovered] = useState(false);
+
+  const tKey = type?.toLowerCase() ?? "";
+  const tb = typeBadge[tKey] ?? typeBadge.economy;
+  const isUltraLuxury = tKey === "ultra luxury";
+
+  const shadowIdle    = "none";
+  const shadowHovered = "0 25px 60px rgba(0,0,0,0.45)";
 
   return (
-    <Link
-      href={`/cars/${slug}`}
-      className="group flex flex-col relative bg-black rounded-3xl overflow-hidden border border-white/5 hover:border-gold/30 shadow-[0_4px_24px_rgba(0,0,0,0.5)] hover:shadow-[0_24px_60px_rgba(0,0,0,0.7),_0_4px_20px_rgba(201,168,76,0.15)] transition-all duration-500 hover:-translate-y-2 h-full"
-      aria-label={`View ${brand} ${model}`}
-    >
-      {/* Soft glow around card on hover */}
-      <div className="absolute inset-0 bg-gold/0 group-hover:bg-gold/5 transition-colors duration-500 pointer-events-none z-10" />
+    <>
+      <style>{`
+        @keyframes fadeUpCard {
+          from { opacity: 0; transform: translateY(40px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .luxury-card {
+          animation: fadeUpCard 1s ease forwards;
+          opacity: 0;
+        }
+      `}</style>
+      <Link
+        href={`/cars/${slug}`}
+        className="group flex flex-col relative overflow-hidden transition-all duration-600 luxury-card"
+        style={{
+          background: "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
+          border: hovered ? "1px solid rgba(214,178,94,0.28)" : "1px solid rgba(255,255,255,0.06)",
+          boxShadow: hovered ? shadowHovered : shadowIdle,
+          transform: hovered ? "translateY(-14px)" : "translateY(0)",
+          height: "100%",
+          borderRadius: "28px",
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          animationDelay: `${index * 0.15}s`,
+        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        aria-label={`View ${brand} ${model}`}
+      >
+      {/* Premium Gradient Lighting */}
+      <div
+        className="absolute inset-0 z-10 pointer-events-none transition-opacity duration-600"
+        style={{
+          background: "linear-gradient(180deg, rgba(255,255,255,0.08), transparent 35%)",
+          opacity: hovered ? 1 : 0,
+        }}
+      />
 
-      {/* Image Container */}
-      <div className="relative h-60 w-full overflow-hidden bg-graphite-800 rounded-t-3xl shrink-0">
-        {!imageError ? (
-          <Image
-            src={image}
-            alt={`${brand} ${model}`}
-            fill
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            onError={() => setImageError(true)}
-          />
-        ) : (
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-graphite-700 to-obsidian-900 text-platinum-500">
-            <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-            </svg>
-            <span className="text-sm font-medium uppercase tracking-widest">Image Unavailable</span>
-          </div>
-        )}
-        
-        {/* Gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40 opacity-80" />
+      {/* ══ IMAGE ══════════════════════════════════════ */}
+      <div className="relative w-full shrink-0 overflow-hidden" style={{ height: "300px" }}>
+        <Image
+          src={imgSrc}
+          alt={`${brand} ${model}`}
+          fill
+          priority={index < 3}
+          className="object-cover"
+          style={{ 
+            transition: "transform 0.9s ease, filter 0.9s ease",
+            transform: hovered ? "scale(1.08)" : "scale(1.0)",
+            filter: hovered ? "brightness(0.95) contrast(1.08)" : "brightness(0.82) contrast(1.05)"
+          }}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          onError={() => setImgSrc(FALLBACK_IMAGE)}
+        />
 
-        {/* Badges row */}
-        <div className="absolute top-4 left-4 right-4 flex items-start justify-between gap-2 z-20">
-          <div className="flex flex-wrap gap-2">
+        {/* Cinematic bottom-fade overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, transparent 40%, rgba(10,10,10,0.9) 100%)",
+          }}
+        />
+
+        {/* ── Badges ── */}
+        <div className="absolute top-3.5 left-3.5 right-3.5 flex items-start justify-between gap-2 z-20">
+          {/* Left: extra badge + type */}
+          <div className="flex flex-wrap gap-1.5">
             {badge && (
-              <span className="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold bg-white text-black uppercase tracking-wider shadow-md">
+              <span
+                className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider"
+                style={{ background: "#fff", color: "#050505" }}
+              >
                 {badge}
               </span>
             )}
-            <span className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md border ${getTypeBadgeClass(type)}`}>
+            <span
+              className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider"
+              style={{
+                background: isUltraLuxury ? tb.bg : tb.bg,
+                color: tb.color,
+                border: `1px solid ${tb.border}`,
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+              }}
+            >
               {type}
             </span>
           </div>
-          <span className={`inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg backdrop-blur-md border ${available ? 'bg-success/10 text-success border-success/30' : 'bg-error/10 text-error border-error/30'}`}>
-            {available ? 'Available' : 'Unavailable'}
+
+          {/* Right: availability */}
+          <span
+            className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider"
+            style={{
+              background: available ? "rgba(0,255,153,0.1)" : "rgba(255,77,77,0.1)",
+              color: available ? "#00FF99" : "#FF4D4D",
+              border: `1px solid ${available ? "rgba(0,255,153,0.3)" : "rgba(255,77,77,0.3)"}`,
+              backdropFilter: "blur(10px)",
+              WebkitBackdropFilter: "blur(10px)",
+            }}
+          >
+            <span
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: available ? "#00FF99" : "#FF4D4D" }}
+            />
+            {available ? "Available" : "Unavailable"}
           </span>
         </div>
       </div>
 
-      {/* Body */}
-      <div className="p-6 flex flex-col flex-grow z-20">
-        <div className="mb-6">
-          <p className="text-xs font-body font-semibold text-gold uppercase tracking-[0.2em] mb-1.5">{brand}</p>
-          <h3 className="font-display font-bold text-2xl text-white leading-tight group-hover:text-gold transition-colors duration-300">
+      {/* ══ BODY ════════════════════════════════════════ */}
+      <div className="flex flex-col flex-1" style={{ padding: "28px" }}>
+
+        {/* Brand + Model */}
+        <div className="mb-5">
+          <p
+            className="font-body font-semibold uppercase mb-1.5"
+            style={{ fontSize: "10px", color: GOLD, letterSpacing: "0.24em" }}
+          >
+            {brand}
+          </p>
+          <h3
+            className="font-display transition-colors duration-300"
+            style={{
+              fontSize: "34px",
+              fontWeight: "700",
+              letterSpacing: "-1px",
+              marginBottom: "16px",
+              color: hovered ? GOLD : "#ffffff",
+              lineHeight: "1.1",
+            }}
+          >
             {model}
           </h3>
         </div>
 
-        {/* Specs row */}
-        <div className="flex items-center justify-between mb-6 pb-6 border-b border-white/10 mt-auto">
-          <div className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+        {/* Specs */}
+        <div
+          className="flex items-center justify-between py-4 mb-4"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
+        >
+          <div className="flex items-center gap-1.5">
+            <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke={GOLD} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
             </svg>
-            <span className="text-xs font-body text-platinum-400 capitalize">{transmission}</span>
+            <span className="font-body capitalize" style={{ fontSize: "11px", color: "#737373" }}>{transmission}</span>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="text-sm">{fuelIcons[fuelType] ?? "⛽"}</span>
-            <span className="text-xs font-body text-platinum-400 capitalize">{fuelType}</span>
+          <div className="flex items-center gap-1.5">
+            <span style={{ fontSize: "13px" }}>{fuelIcons[fuelType] ?? "⛽"}</span>
+            <span className="font-body capitalize" style={{ fontSize: "11px", color: "#737373" }}>{fuelType}</span>
           </div>
-          <div className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+          <div className="flex items-center gap-1.5">
+            <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke={GOLD} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <span className="text-xs font-body text-platinum-400">{seats} seats</span>
+            <span className="font-body" style={{ fontSize: "11px", color: "#737373" }}>{seats} seats</span>
           </div>
         </div>
 
-        {/* Price + CTA */}
-        <div className="flex items-end justify-between">
+        {/* Price + CTA — pushed to bottom */}
+        <div className="flex items-end justify-between mt-auto pt-1">
+          {/* Price */}
           <div>
-            <p className="text-xs text-platinum-500 font-body mb-1">Daily Rate</p>
-            <div className="flex items-baseline gap-1.5">
-              <span className="font-display font-bold text-3xl text-white">{formatPrice(pricePerDay)}</span>
-              <span className="text-sm text-platinum-500 font-body">/ day</span>
+            <p
+              className="font-body font-semibold uppercase mb-1.5"
+              style={{ fontSize: "9px", color: "#525252", letterSpacing: "0.18em" }}
+            >
+              Daily Rate
+            </p>
+            <div className="flex items-baseline gap-1">
+              <span
+                className="font-display"
+                style={{ fontSize: "48px", fontWeight: "800", color: "#ffffff" }}
+              >
+                {formatPrice(pricePerDay)}
+              </span>
+              <span className="font-body" style={{ fontSize: "16px", color: "#ffffff", opacity: 0.6 }}>/ day</span>
             </div>
           </div>
-          <div className="relative flex items-center gap-2 text-gold text-sm font-semibold font-body group-hover:gap-3 transition-all duration-300">
-            View Car
-            <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+          {/* View Car CTA */}
+          <div
+            className="relative flex items-center gap-1.5 font-body font-semibold uppercase transition-all duration-300"
+            style={{ fontSize: "11px", color: GOLD, letterSpacing: "0.12em" }}
+          >
+            <span>View Car</span>
+            <svg
+              className="w-3.5 h-3.5 transition-transform duration-400"
+              style={{ transform: hovered ? "translateX(5px)" : "translateX(0)" }}
+              fill="none" stroke={GOLD} viewBox="0 0 24 24"
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
-            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold group-hover:w-full transition-all duration-500 shadow-[0_0_10px_#c9a84c]" />
+            {/* Animated gold underline glow */}
+            <span
+              className="absolute -bottom-1 left-0 h-px transition-all duration-500"
+              style={{
+                width: hovered ? "calc(100% - 18px)" : "0%",
+                background: `linear-gradient(90deg, ${GOLD}, #f0cc6a)`,
+                boxShadow: "0 0 8px rgba(212,175,55,0.8)",
+              }}
+            />
           </div>
         </div>
       </div>
-    </Link>
+      </Link>
+    </>
   );
 }

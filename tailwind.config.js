@@ -15,8 +15,9 @@ module.exports = {
         error: { DEFAULT: "#FF4D4D" },
       },
       fontFamily: {
-        display: ["var(--font-poppins)", "sans-serif"],
-        body: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-cormorant)", "serif"],
+        body: ["var(--font-barlow)", "sans-serif"],
+        condensed: ["var(--font-barlow)", "sans-serif"],
       },
       backgroundImage: {
         "gold-gradient": "linear-gradient(135deg, #c9a84c 0%, #e9c15f 50%, #b08a2e 100%)",

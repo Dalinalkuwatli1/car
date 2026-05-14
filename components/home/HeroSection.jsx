@@ -1,99 +1,226 @@
+"use client";
+
 import Link from "next/link";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-obsidian-900">
-      {/* Background layers */}
-      <div className="absolute inset-0 bg-hero-gradient" />
-      <div className="absolute inset-0 grid-pattern opacity-50" />
+    <section className="relative min-h-screen overflow-hidden bg-[#050505]">
 
-      {/* Ambient glow */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gold/4 rounded-full blur-3xl pointer-events-none" />
-
-      {/* Background car image */}
+      {/* ── Background car image ── */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=80"
+          src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1920&q=85"
           alt="Luxury sports car"
-          className="w-full h-full object-cover object-center opacity-30"
+          className="w-full h-full object-cover object-center"
+          style={{ opacity: 0.35, filter: "brightness(0.72)" }}
         />
-        {/* Subtle radial vignette */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-obsidian-900/50 to-obsidian-900 opacity-80" />
-        {/* Stronger left-side gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-obsidian-900 via-obsidian-900/95 to-transparent w-full md:w-[85%] lg:w-[70%]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-obsidian-900 via-transparent to-obsidian-900/40" />
+        {/* Cinematic dark vignette */}
+        <div className="absolute inset-0" style={{
+          background: "radial-gradient(ellipse at 50% 50%, transparent 20%, rgba(5,5,5,0.7) 70%, #050505 100%)"
+        }} />
+        {/* Strong left readability gradient */}
+        <div className="absolute inset-0" style={{
+          background: "linear-gradient(90deg, rgba(0,0,0,0.92) 10%, rgba(0,0,0,0.78) 35%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.20) 100%)"
+        }} />
+        {/* Top and bottom edge fade */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(5,5,5,0.6)] via-transparent to-[#050505]" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24">
-        <div className="max-w-2xl w-full">
-          {/* Eyebrow */}
-          <div className="inline-flex items-center gap-3 mb-8">
-            <div className="w-10 h-px bg-gold-gradient" />
-            <span className="text-xs font-body font-semibold tracking-[0.3em] uppercase text-gold">
-              Premium Car Rental · London
-            </span>
-          </div>
+      {/* ── Ambient gold glows ── */}
+      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-gold/3 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-1/3 w-64 h-64 bg-gold/5 rounded-full blur-[80px] pointer-events-none" />
 
-          {/* Headline */}
-          <h1 className="font-display font-light leading-[1.1] tracking-tight mb-10">
-            <span className="block text-[2.75rem] sm:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] text-white">
-              Drive Your
-            </span>
-            <span className="block text-[2.75rem] sm:text-6xl lg:text-[4.5rem] xl:text-[5.5rem] font-bold text-gold-gradient bg-gold-gradient [-webkit-background-clip:text] [-webkit-text-fill-color:transparent] [background-clip:text]">
-              Experience.
-            </span>
-          </h1>
+      {/* ── Subtle grid pattern ── */}
+      <div className="absolute inset-0 grid-pattern opacity-30 pointer-events-none" />
 
-          {/* Subheading */}
-          <p className="text-[17px] sm:text-lg text-platinum-300 font-body font-light leading-[1.8] mb-14 max-w-xl">
-            From executive city transfers to unforgettable weekend escapes, discover a curated collection of the world&apos;s finest luxury vehicles designed for comfort, performance, and prestige.
-          </p>
+      {/* ── Soft Light Glow Behind Content ── */}
+      <div className="absolute top-1/2 -left-[10%] w-[700px] h-[700px] -translate-y-1/2 z-[1] pointer-events-none" style={{ background: "radial-gradient(circle, rgba(214,178,94,0.12) 0%, transparent 70%)" }} />
 
-          {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-start gap-5 mb-20">
-            <Link 
-              href="/cars" 
-              className="inline-flex items-center justify-center gap-2.5 px-9 py-4 text-sm font-body font-semibold tracking-[0.15em] text-obsidian-900 bg-gold hover:bg-white transition-all duration-500 uppercase rounded-full shadow-gold hover:shadow-[0_0_24px_rgba(255,255,255,0.4)] group"
-            >
-              <svg className="w-4 h-4 transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.739 10.921c-1.347-.39-1.885-.572-3.516-1.01C17.219 8.589 15.78 7 15 7H5c-1.5 0-2.474 1.12-3 3.5L1 15.5V18h1.5c0 1.381 1.119 2.5 2.5 2.5S7.5 19.381 7.5 18h9c0 1.381 1.119 2.5 2.5 2.5s2.5-1.119 2.5-2.5H23v-4.5c0-.5-.853-.869-1.261-.079z" />
-              </svg>
-              Browse Fleet
-            </Link>
-            <Link 
-              href="#how-it-works" 
-              className="inline-flex items-center justify-center px-9 py-4 text-sm font-body font-semibold tracking-[0.15em] text-platinum-200 border border-white/20 hover:border-gold hover:text-gold transition-all duration-500 uppercase rounded-full bg-obsidian-900/30 backdrop-blur-md"
-            >
-              How It Works
-            </Link>
-          </div>
+      {/* ── Content (Left-Centered Luxury Layout) ── */}
+      <div
+        className="absolute z-10 hero-content-responsive"
+        style={{
+          left: "9%",
+          top: "50%",
+          transform: "translateY(-48%)",
+          maxWidth: "650px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "flex-start",
+          textAlign: "left",
+          animation: "fadeUp 1.2s ease forwards",
+        }}
+      >
 
-          {/* Stats */}
-          <div className="flex items-center gap-8 sm:gap-14">
-            {[
-              { value: "200+", label: "Premium Vehicles" },
-              { value: "15K+", label: "Satisfied Clients" },
-              { value: "4.9★", label: "Average Rating" },
-            ].map((stat, i) => (
-              <div key={stat.label} className="flex items-center gap-8 sm:gap-14">
-                <div className="flex flex-col gap-2">
-                  <p className="font-display font-light text-[2rem] sm:text-[2.5rem] text-white tracking-tight">{stat.value}</p>
-                  <p className="text-[10px] font-body font-semibold text-gold tracking-[0.2em] uppercase">{stat.label}</p>
-                </div>
-                {i !== 2 && <div className="w-px h-12 bg-gradient-to-b from-transparent via-white/15 to-transparent hidden sm:block" />}
-              </div>
-            ))}
-          </div>
+        {/* Headline */}
+        <h1
+          className="font-display hero-title-responsive"
+          style={{
+            fontSize: "76px",
+            lineHeight: "1.02",
+            fontWeight: "700",
+            color: "white",
+            marginBottom: "24px",
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Drive Your <br />
+          <span style={{ color: "#D6B25E" }}>Experience.</span>
+        </h1>
+
+        {/* Subheading */}
+        <p
+          className="font-body font-light hero-desc-responsive"
+          style={{
+            color: "rgba(255,255,255,0.85)",
+            fontSize: "18px",
+            lineHeight: "1.8",
+            maxWidth: "540px",
+            marginBottom: "40px",
+          }}
+        >
+          From executive city transfers to unforgettable weekend escapes, discover a curated
+          collection of the world&apos;s finest luxury vehicles designed for comfort, performance,
+          and prestige.
+        </p>
+
+        {/* CTAs */}
+        <div
+          className="flex flex-wrap"
+          style={{ gap: "16px", marginBottom: "0" }}
+        >
+          <Link
+            href="/cars"
+            className="font-body font-bold uppercase transition-all duration-400"
+            style={{
+              padding: "14px 30px",
+              background: "linear-gradient(135deg, #E0BE6F, #B68A2F)",
+              color: "black",
+              borderRadius: "999px",
+              textDecoration: "none",
+              letterSpacing: "0.05em",
+              fontSize: "14px",
+              boxShadow: "0 10px 35px rgba(214,178,94,0.25)",
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.transform = "translateY(-4px) scale(1.02)";
+              e.currentTarget.style.boxShadow = "0 18px 45px rgba(214,178,94,0.4)";
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.transform = "translateY(0) scale(1)";
+              e.currentTarget.style.boxShadow = "0 10px 35px rgba(214,178,94,0.25)";
+            }}
+          >
+            Browse Fleet
+          </Link>
+          <Link
+            href="#how-it-works"
+            className="font-body font-bold uppercase transition-all duration-350"
+            style={{
+              padding: "14px 30px",
+              border: "1px solid rgba(255,255,255,0.18)",
+              color: "white",
+              borderRadius: "999px",
+              textDecoration: "none",
+              backdropFilter: "blur(8px)",
+              letterSpacing: "0.05em",
+              fontSize: "14px",
+            }}
+            onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.08)"}
+            onMouseLeave={e => e.currentTarget.style.background = "transparent"}
+          >
+            How It Works
+          </Link>
+        </div>
+
+        {/* Stats */}
+        <div
+          className="hero-stats-responsive"
+          style={{
+            display: "flex",
+            gap: "70px",
+            marginTop: "70px",
+          }}
+        >
+          {[
+            { value: "200+", label: "Premium Vehicles" },
+            { value: "15K+", label: "Satisfied Clients" },
+            { value: "4.9★", label: "Average Rating" },
+          ].map((stat) => (
+            <div key={stat.label}>
+              <h2
+                className="font-display hero-stat-val-responsive"
+                style={{
+                  fontSize: "42px",
+                  color: "white",
+                  marginBottom: "6px",
+                  fontWeight: "300",
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.02em",
+                }}
+              >
+                {stat.value}
+              </h2>
+              <span
+                className="font-body uppercase"
+                style={{
+                  color: "rgba(255,255,255,0.65)",
+                  fontSize: "13px",
+                  letterSpacing: "2px",
+                  fontWeight: "500",
+                }}
+              >
+                {stat.label}
+              </span>
+            </div>
+          ))}
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-platinum-600">
-        <span className="text-2xs font-body tracking-[0.2em] uppercase">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-platinum-500/50 to-transparent animate-pulse" />
+      {/* ── Responsive Styles & Animations ── */}
+      <style>{`
+        @keyframes fadeUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(-48%);
+          }
+        }
+        @media(max-width: 768px) {
+          .hero-content-responsive {
+            left: 7% !important;
+            right: 7% !important;
+            top: 52% !important;
+            maxWidth: 100% !important;
+            transform: translateY(-50%) !important;
+            animation: none !important; /* Mobile fallback without custom transform */
+          }
+          .hero-title-responsive {
+            font-size: 48px !important;
+          }
+          .hero-desc-responsive {
+            font-size: 15px !important;
+            line-height: 1.7 !important;
+          }
+          .hero-stats-responsive {
+            gap: 24px !important;
+            flex-wrap: wrap !important;
+          }
+          .hero-stat-val-responsive {
+            font-size: 32px !important;
+          }
+        }
+      `}</style>
+
+      {/* ── Scroll indicator ── */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+        <span className="text-[9px] font-body tracking-[0.3em] uppercase text-platinum-600">Scroll</span>
+        <div className="w-px h-10 bg-gradient-to-b from-platinum-500/40 to-transparent animate-pulse" />
       </div>
+
     </section>
   );
 }

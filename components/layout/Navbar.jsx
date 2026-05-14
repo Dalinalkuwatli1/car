@@ -2,24 +2,27 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import Button from "@/components/ui/Button";
+
+const GOLD = "#D6B25E";
 
 const navLinks = [
-  { label: "Home", href: "/" },
+  { label: "Home",      href: "/" },
   { label: "Inventory", href: "/cars" },
-  { label: "Brands", href: "#brands" },
-  { label: "Services", href: "#services" },
-  { label: "About Us", href: "#about" },
-  { label: "Contact", href: "#contact" },
+  { label: "Brands",    href: "#brands" },
+  { label: "Services",  href: "#services" },
+  { label: "About Us",  href: "#about" },
+  { label: "Contact",   href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen]   = useState(false);
+  const [activeLink, setActiveLink] = useState("/");
   const menuRef = useRef(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    setActiveLink(window.location.pathname);
+    const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -37,127 +40,410 @@ export default function Navbar() {
 
   return (
     <>
+      {/* ── Main navbar ── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
-          scrolled
-            ? "bg-obsidian-900/60 backdrop-blur-2xl border-b border-white/5 shadow-nav py-4"
-            : "bg-gradient-to-b from-obsidian-900/80 via-obsidian-900/20 to-transparent py-6"
-        }`}
+        style={{
+          position: "fixed",
+          top: 0, left: 0, right: 0,
+          zIndex: 999,
+          height: "90px",
+          display: "flex",
+          alignItems: "center",
+          transition: "background 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease, backdrop-filter 0.6s ease",
+          background: "rgba(0,0,0,0.35)",
+          backdropFilter: "blur(14px)",
+          WebkitBackdropFilter: "blur(14px)",
+          borderBottom: "1px solid rgba(255,255,255,0.05)",
+          boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.6)" : "none",
+        }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between relative">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group" aria-label="Velox Rentals home">
-              <svg className="w-7 h-7 text-gold transition-transform duration-500 group-hover:scale-105" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M21.739 10.921c-1.347-.39-1.885-.572-3.516-1.01C17.219 8.589 15.78 7 15 7H5c-1.5 0-2.474 1.12-3 3.5L1 15.5V18h1.5c0 1.381 1.119 2.5 2.5 2.5S7.5 19.381 7.5 18h9c0 1.381 1.119 2.5 2.5 2.5s2.5-1.119 2.5-2.5H23v-4.5c0-.5-.853-.869-1.261-.079zM5 8.5h9.5l1.5 3.5H5.5L5 8.5zM5 19c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1zm14 0c-.552 0-1-.448-1-1s.448-1 1-1 1 .448 1 1-.448 1-1 1z"/>
-              </svg>
-              <span className="font-display font-light text-2xl tracking-[0.2em] text-white uppercase group-hover:text-gold transition-colors duration-500">
-                VELOX
-              </span>
-            </Link>
+        {/* Subtle gold top line — always visible */}
+        <div style={{
+          position: "absolute", top: 0, left: 0, right: 0, height: "1px",
+          background: "linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent)",
+          pointerEvents: "none",
+        }} />
 
-            {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              {navLinks.map((link) => (
-                <Link
+        {/* ── Inner container ── */}
+        <div
+          style={{
+            width: "100%",
+            maxWidth: "1400px",
+            margin: "0 auto",
+            paddingLeft: "clamp(24px, 5vw, 70px)",
+            paddingRight: "clamp(24px, 5vw, 70px)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            position: "relative",
+          }}
+        >
+
+          {/* ── Logo ── */}
+          <Link
+            href="/"
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "12px",
+              textDecoration: "none",
+              flexShrink: 0,
+              zIndex: 10,
+            }}
+            aria-label="Velox Rentals home"
+          >
+            <svg
+              style={{
+                width: "28px", height: "28px",
+                color: GOLD,
+                transition: "transform 0.4s ease, filter 0.4s ease",
+                flexShrink: 0,
+              }}
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = "scale(1.12)";
+                e.currentTarget.style.filter = `drop-shadow(0 0 8px ${GOLD})`;
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = "scale(1)";
+                e.currentTarget.style.filter = "none";
+              }}
+            >
+              <path d="M12 21L2 3h5.5L12 11.5L16.5 3H22L12 21z" />
+            </svg>
+            <span
+              className="font-body font-normal uppercase"
+              style={{
+                fontSize: "15px",
+                letterSpacing: "0.38em",
+                color: "#ffffff",
+                marginLeft: "4px",
+                transition: "color 0.4s ease",
+              }}
+              onMouseEnter={e => e.currentTarget.style.color = GOLD}
+              onMouseLeave={e => e.currentTarget.style.color = "#ffffff"}
+            >
+              VELOX
+            </span>
+          </Link>
+
+          {/* ── Desktop nav — absolutely centered ── */}
+          <nav
+            style={{
+              position: "absolute",
+              left: "50%",
+              top: "50%",
+              transform: "translate(-50%, -50%)",
+              display: "flex",
+              alignItems: "center",
+              gap: "45px",
+            }}
+            className="desktop-nav"
+          >
+            {navLinks.map((link) => {
+              const isActive = activeLink === link.href;
+              return (
+                <NavLink
                   key={link.href}
                   href={link.href}
-                  className="relative text-[13px] font-body font-medium text-platinum-400 hover:text-white transition-colors duration-300 tracking-wider uppercase group"
+                  isActive={isActive}
+                  onClick={() => setActiveLink(link.href)}
                 >
                   {link.label}
-                  <span className="absolute -bottom-1.5 left-1/2 w-0 h-px bg-gold group-hover:w-full transition-all duration-500 -translate-x-1/2 opacity-0 group-hover:opacity-100" />
-                </Link>
-              ))}
-            </nav>
+                </NavLink>
+              );
+            })}
+          </nav>
 
-            {/* Desktop CTA */}
-            <div className="hidden md:flex items-center gap-5">
-              <Link 
-                href="/login" 
-                className="px-6 py-2.5 text-[13px] font-body font-semibold tracking-[0.1em] text-white bg-transparent border border-gold hover:bg-gold hover:text-black transition-all duration-300 uppercase rounded-xl hover:scale-105"
-              >
-                Sign In
-              </Link>
-              <Link 
-                href="/list-car" 
-                className="px-7 py-3 text-[13px] font-body font-semibold tracking-[0.1em] text-obsidian-900 bg-gold hover:bg-gold-light hover:-translate-y-0.5 transition-all duration-300 uppercase rounded-full shadow-md hover:shadow-[0_0_25px_rgba(201,168,76,0.5)]"
-              >
-                List Your Car
-              </Link>
-            </div>
-
-            {/* Mobile Hamburger */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="md:hidden relative w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-lg hover:bg-white/5 transition-colors"
-              aria-label="Toggle menu"
-              aria-expanded={menuOpen}
+          {/* ── Desktop CTA buttons ── */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "14px",
+              flexShrink: 0,
+              zIndex: 10,
+            }}
+            className="desktop-ctas"
+          >
+            {/* Sign In */}
+            <Link
+              href="/login"
+              className="font-body font-semibold uppercase"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.14em",
+                color: "#ffffff",
+                textDecoration: "none",
+                padding: "12px 24px",
+                borderRadius: "8px",
+                border: `1px solid rgba(212,175,55,0.55)`,
+                transition: "all 0.3s ease",
+                display: "inline-block",
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.background = GOLD;
+                e.currentTarget.style.color = "#050505";
+                e.currentTarget.style.borderColor = GOLD;
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow = "0 8px 24px rgba(212,175,55,0.3)";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.background = "transparent";
+                e.currentTarget.style.color = "#ffffff";
+                e.currentTarget.style.borderColor = "rgba(212,175,55,0.55)";
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "none";
+              }}
             >
-              <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-              <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`} />
-              <span className={`block w-6 h-0.5 bg-white transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-            </button>
+              Sign In
+            </Link>
+
+            {/* List Your Car */}
+            <Link
+              href="/list-car"
+              className="font-body font-bold uppercase"
+              style={{
+                fontSize: "11px",
+                letterSpacing: "0.14em",
+                color: "#050505",
+                textDecoration: "none",
+                padding: "12px 26px",
+                borderRadius: "100px",
+                background: "linear-gradient(135deg, #c9a84c, #e9c15f)",
+                border: "1px solid transparent",
+                boxShadow: "0 4px 20px rgba(212,175,55,0.35)",
+                transition: "all 0.3s ease",
+                display: "inline-block",
+                whiteSpace: "nowrap",
+              }}
+              onMouseEnter={e => {
+                e.currentTarget.style.transform = "translateY(-3px)";
+                e.currentTarget.style.boxShadow = "0 0 28px rgba(212,175,55,0.55)";
+              }}
+              onMouseLeave={e => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 4px 20px rgba(212,175,55,0.35)";
+              }}
+            >
+              List Your Car
+            </Link>
           </div>
+
+          {/* ── Mobile hamburger ── */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "5px",
+              width: "40px", height: "40px",
+              borderRadius: "10px",
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              zIndex: 10,
+              transition: "background 0.2s ease",
+            }}
+            className="mobile-hamburger"
+            aria-label="Toggle menu"
+            aria-expanded={menuOpen}
+            onMouseEnter={e => e.currentTarget.style.background = "rgba(255,255,255,0.06)"}
+            onMouseLeave={e => e.currentTarget.style.background = "none"}
+          >
+            {[0, 1, 2].map((i) => (
+              <span
+                key={i}
+                style={{
+                  display: "block",
+                  width: "20px", height: "1.5px",
+                  background: "#ffffff",
+                  borderRadius: "2px",
+                  transition: "all 0.35s ease",
+                  transform: menuOpen
+                    ? i === 0 ? "rotate(45deg) translate(4.5px, 4.5px)"
+                    : i === 1 ? "scaleX(0) opacity(0)"
+                    : "-rotate-45deg translate(4.5px, -4.5px)"
+                    : "none",
+                  opacity: menuOpen && i === 1 ? 0 : 1,
+                }}
+              />
+            ))}
+          </button>
+
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* ── Mobile drawer ── */}
       <div
-        className={`fixed inset-0 z-40 md:hidden transition-all duration-300 ${menuOpen ? "visible" : "invisible"}`}
+        style={{
+          position: "fixed",
+          inset: 0,
+          zIndex: 998,
+          visibility: menuOpen ? "visible" : "hidden",
+          transition: "visibility 0.4s ease",
+          pointerEvents: menuOpen ? "auto" : "none",
+        }}
         aria-hidden={!menuOpen}
+        className="lg:hidden"
       >
         {/* Backdrop */}
         <div
-          className={`absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300 ${menuOpen ? "opacity-100" : "opacity-0"}`}
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "rgba(0,0,0,0.8)",
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            opacity: menuOpen ? 1 : 0,
+            transition: "opacity 0.4s ease",
+          }}
           onClick={() => setMenuOpen(false)}
         />
         {/* Panel */}
         <div
           ref={menuRef}
-          className={`absolute top-0 right-0 bottom-0 w-72 bg-graphite-700 border-l border-white/8 transition-transform duration-300 flex flex-col ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+          style={{
+            position: "absolute",
+            top: 0, right: 0, bottom: 0,
+            width: "320px",
+            background: "#0a0a0a",
+            borderLeft: "1px solid rgba(255,255,255,0.06)",
+            display: "flex",
+            flexDirection: "column",
+            transform: menuOpen ? "translateX(0)" : "translateX(100%)",
+            transition: "transform 0.4s cubic-bezier(0.22,1,0.36,1)",
+          }}
         >
-          <div className="flex items-center justify-between px-6 py-5 border-b border-white/8">
-            <span className="font-display font-bold text-lg tracking-widest text-white uppercase">VELOX</span>
+          {/* Panel header */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 24px", height: "90px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <svg style={{ width: "22px", height: "22px", color: GOLD }} fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 21L2 3h5.5L12 11.5L16.5 3H22L12 21z" />
+              </svg>
+              <span className="font-body font-normal uppercase" style={{ fontSize: "14px", letterSpacing: "0.35em", color: "#ffffff", marginLeft: "2px" }}>VELOX</span>
+            </div>
             <button
               onClick={() => setMenuOpen(false)}
-              className="w-8 h-8 flex items-center justify-center rounded-lg hover:bg-white/8 text-platinum-400"
+              style={{ width: "36px", height: "36px", borderRadius: "10px", border: "none", background: "rgba(255,255,255,0.05)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: "rgba(232,232,232,0.6)", transition: "all 0.2s ease" }}
               aria-label="Close menu"
+              onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; e.currentTarget.style.color = "#ffffff"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.color = "rgba(232,232,232,0.6)"; }}
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg style={{ width: "16px", height: "16px" }} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
           </div>
-          <nav className="flex-1 px-4 py-6 flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setMenuOpen(false)}
-                className="px-4 py-3 text-base font-body font-medium text-platinum-300 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-200"
-              >
-                {link.label}
-              </Link>
-            ))}
+
+          {/* Nav links */}
+          <nav style={{ flex: 1, padding: "32px 16px", display: "flex", flexDirection: "column", gap: "4px" }}>
+            {navLinks.map((link) => {
+              const isActive = activeLink === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => { setActiveLink(link.href); setMenuOpen(false); }}
+                  className="font-body font-medium uppercase"
+                  style={{
+                    fontSize: "13px",
+                    letterSpacing: "0.16em",
+                    textDecoration: "none",
+                    padding: "14px 16px",
+                    borderRadius: "12px",
+                    transition: "all 0.2s ease",
+                    color: isActive ? GOLD : "rgba(232,232,232,0.6)",
+                    background: isActive ? "rgba(212,175,55,0.06)" : "transparent",
+                    border: isActive ? "1px solid rgba(212,175,55,0.15)" : "1px solid transparent",
+                  }}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </nav>
-          <div className="px-4 pb-8 flex flex-col gap-4">
-            <Link 
-              href="/login" 
-              onClick={() => setMenuOpen(false)}
-              className="w-full text-center px-6 py-4 text-xs font-body font-semibold tracking-widest text-white border border-gold rounded-xl hover:bg-gold hover:text-black transition-all duration-300 uppercase"
-            >
-              Sign In
-            </Link>
-            <Link 
-              href="/list-car" 
-              onClick={() => setMenuOpen(false)}
-              className="w-full text-center px-6 py-4 text-xs font-body font-semibold tracking-widest text-obsidian-900 bg-gold hover:bg-gold-light transition-all duration-500 uppercase rounded-full shadow-md"
-            >
-              List Your Car
-            </Link>
+
+          {/* CTAs */}
+          <div style={{ padding: "0 16px 32px", display: "flex", flexDirection: "column", gap: "12px" }}>
+            <Link href="/login" onClick={() => setMenuOpen(false)}
+              className="font-body font-semibold uppercase"
+              style={{ display: "block", textAlign: "center", padding: "14px", fontSize: "12px", letterSpacing: "0.15em", color: "#ffffff", textDecoration: "none", border: "1px solid rgba(212,175,55,0.45)", borderRadius: "12px", transition: "all 0.3s ease" }}
+              onMouseEnter={e => { e.currentTarget.style.background = GOLD; e.currentTarget.style.color = "#050505"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#ffffff"; }}
+            >Sign In</Link>
+            <Link href="/list-car" onClick={() => setMenuOpen(false)}
+              className="font-body font-bold uppercase"
+              style={{ display: "block", textAlign: "center", padding: "14px", fontSize: "12px", letterSpacing: "0.15em", color: "#050505", textDecoration: "none", background: "linear-gradient(135deg, #c9a84c, #e9c15f)", borderRadius: "100px", boxShadow: "0 4px 20px rgba(212,175,55,0.3)", transition: "all 0.3s ease" }}
+              onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 8px 32px rgba(212,175,55,0.5)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+              onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 4px 20px rgba(212,175,55,0.3)"; e.currentTarget.style.transform = "translateY(0)"; }}
+            >List Your Car</Link>
           </div>
         </div>
       </div>
+
+      {/* ── Responsive: hide desktop nav/CTAs, show hamburger on mobile ── */}
+      <style>{`
+        .desktop-nav  { display: flex !important; }
+        .desktop-ctas { display: flex !important; }
+        .mobile-hamburger { display: none !important; }
+
+        @media (max-width: 1024px) {
+          .desktop-nav  { display: none !important; }
+          .desktop-ctas { display: none !important; }
+          .mobile-hamburger { display: flex !important; }
+        }
+      `}</style>
     </>
+  );
+}
+
+/* ── NavLink sub-component with gold underline animation ── */
+function NavLink({ href, isActive, onClick, children }) {
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className="font-body font-semibold uppercase"
+      style={{
+        position: "relative",
+        fontSize: "13px",
+        letterSpacing: "1.5px",
+        textDecoration: "none",
+        color: isActive ? GOLD : "rgba(255,255,255,0.75)",
+        transition: "color 0.3s ease",
+        paddingBottom: "2px",
+      }}
+      onMouseEnter={e => {
+        if (!isActive) e.currentTarget.style.color = "#ffffff";
+        const bar = e.currentTarget.querySelector(".underline-bar");
+        if (bar && !isActive) { bar.style.width = "100%"; bar.style.opacity = "1"; }
+      }}
+      onMouseLeave={e => {
+        if (!isActive) e.currentTarget.style.color = "rgba(255,255,255,0.75)";
+        const bar = e.currentTarget.querySelector(".underline-bar");
+        if (bar && !isActive) { bar.style.width = "0%"; bar.style.opacity = "0"; }
+      }}
+    >
+      {children}
+      {/* Gold underline bar */}
+      <span
+        className="underline-bar"
+        style={{
+          position: "absolute",
+          left: 0,
+          bottom: "-8px",
+          height: "2px",
+          background: GOLD,
+          width: isActive ? "100%" : "0%",
+          opacity: isActive ? 1 : 0,
+          transition: "width 0.35s ease, opacity 0.35s ease",
+          borderRadius: "2px",
+        }}
+      />
+    </Link>
   );
 }
