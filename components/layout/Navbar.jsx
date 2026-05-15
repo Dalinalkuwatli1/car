@@ -2,21 +2,24 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import SignInButton from "@/components/ui/SignInButton";
+import AuthModal from "@/components/auth/AuthModal";
 
 const GOLD = "#D6B25E";
 
 const navLinks = [
   { label: "Home",      href: "/" },
   { label: "Inventory", href: "/cars" },
-  { label: "Brands",    href: "#brands" },
-  { label: "Services",  href: "#services" },
-  { label: "About Us",  href: "#about" },
+  { label: "Brands",    href: "/brands" },
+  { label: "Services",  href: "/services" },
+  { label: "About Us",  href: "/about" },
   { label: "Contact",   href: "#contact" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
+  const [authOpen, setAuthOpen]   = useState(false);
   const [activeLink, setActiveLink] = useState("/");
   const menuRef = useRef(null);
 
@@ -46,14 +49,14 @@ export default function Navbar() {
           position: "fixed",
           top: 0, left: 0, right: 0,
           zIndex: 999,
-          height: "90px",
+          height: "78px",
           display: "flex",
           alignItems: "center",
           transition: "background 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease, backdrop-filter 0.6s ease",
-          background: "rgba(0,0,0,0.35)",
-          backdropFilter: "blur(14px)",
-          WebkitBackdropFilter: "blur(14px)",
-          borderBottom: "1px solid rgba(255,255,255,0.05)",
+          background: "rgba(0,0,0,0.4)",
+          backdropFilter: "blur(24px)",
+          WebkitBackdropFilter: "blur(24px)",
+          borderBottom: "1px solid rgba(255,255,255,0.1)",
           boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.6)" : "none",
         }}
       >
@@ -70,8 +73,8 @@ export default function Navbar() {
             width: "100%",
             maxWidth: "1400px",
             margin: "0 auto",
-            paddingLeft: "clamp(24px, 5vw, 70px)",
-            paddingRight: "clamp(24px, 5vw, 70px)",
+            paddingLeft: "clamp(24px, 5vw, 55px)",
+            paddingRight: "clamp(24px, 5vw, 55px)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -168,37 +171,7 @@ export default function Navbar() {
             className="desktop-ctas"
           >
             {/* Sign In */}
-            <Link
-              href="/login"
-              className="font-body font-semibold uppercase"
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.14em",
-                color: "#ffffff",
-                textDecoration: "none",
-                padding: "12px 24px",
-                borderRadius: "8px",
-                border: `1px solid rgba(212,175,55,0.55)`,
-                transition: "all 0.3s ease",
-                display: "inline-block",
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.background = GOLD;
-                e.currentTarget.style.color = "#050505";
-                e.currentTarget.style.borderColor = GOLD;
-                e.currentTarget.style.transform = "translateY(-2px)";
-                e.currentTarget.style.boxShadow = "0 8px 24px rgba(212,175,55,0.3)";
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.background = "transparent";
-                e.currentTarget.style.color = "#ffffff";
-                e.currentTarget.style.borderColor = "rgba(212,175,55,0.55)";
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
-              }}
-            >
-              Sign In
-            </Link>
+            <SignInButton onClick={() => setAuthOpen(true)} />
 
             {/* List Your Car */}
             <Link
@@ -369,12 +342,12 @@ export default function Navbar() {
 
           {/* CTAs */}
           <div style={{ padding: "0 16px 32px", display: "flex", flexDirection: "column", gap: "12px" }}>
-            <Link href="/login" onClick={() => setMenuOpen(false)}
+            <button onClick={() => { setMenuOpen(false); setAuthOpen(true); }}
               className="font-body font-semibold uppercase"
-              style={{ display: "block", textAlign: "center", padding: "14px", fontSize: "12px", letterSpacing: "0.15em", color: "#ffffff", textDecoration: "none", border: "1px solid rgba(212,175,55,0.45)", borderRadius: "12px", transition: "all 0.3s ease" }}
+              style={{ display: "block", width: "100%", textAlign: "center", padding: "14px", fontSize: "12px", letterSpacing: "0.15em", color: "#ffffff", textDecoration: "none", border: "1px solid rgba(212,175,55,0.45)", borderRadius: "12px", transition: "all 0.3s ease", background: "transparent", cursor: "pointer" }}
               onMouseEnter={e => { e.currentTarget.style.background = GOLD; e.currentTarget.style.color = "#050505"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#ffffff"; }}
-            >Sign In</Link>
+            >Sign In</button>
             <Link href="/list-car" onClick={() => setMenuOpen(false)}
               className="font-body font-bold uppercase"
               style={{ display: "block", textAlign: "center", padding: "14px", fontSize: "12px", letterSpacing: "0.15em", color: "#050505", textDecoration: "none", background: "linear-gradient(135deg, #c9a84c, #e9c15f)", borderRadius: "100px", boxShadow: "0 4px 20px rgba(212,175,55,0.3)", transition: "all 0.3s ease" }}
@@ -397,6 +370,9 @@ export default function Navbar() {
           .mobile-hamburger { display: flex !important; }
         }
       `}</style>
+
+      {/* Auth Modal */}
+      <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
     </>
   );
 }
@@ -410,8 +386,8 @@ function NavLink({ href, isActive, onClick, children }) {
       className="font-body font-semibold uppercase"
       style={{
         position: "relative",
-        fontSize: "13px",
-        letterSpacing: "1.5px",
+        fontSize: "14px",
+        letterSpacing: "1.2px",
         textDecoration: "none",
         color: isActive ? GOLD : "rgba(255,255,255,0.75)",
         transition: "color 0.3s ease",
