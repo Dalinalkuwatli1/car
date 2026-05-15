@@ -47,16 +47,19 @@ export default function CarCard({ car, index = 0 }) {
       `}</style>
       <Link
         href={`/cars/${slug}`}
-        className="group flex flex-col relative overflow-hidden transition-all duration-600 luxury-card"
+        className="
+          group flex flex-col relative overflow-hidden transition-all duration-500 luxury-card
+          w-full max-w-[420px] h-[440px]
+          backdrop-blur-xl
+          bg-white/[0.02]
+          border border-white/10
+          shadow-[0_0_50px_rgba(212,175,55,0.08)]
+          rounded-[32px]
+          hover:-translate-y-2
+          hover:border-[#D4AF37]/40
+          hover:shadow-[0_0_40px_rgba(212,175,55,0.12)]
+        "
         style={{
-          background: "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
-          border: hovered ? "1px solid rgba(214,178,94,0.28)" : "1px solid rgba(255,255,255,0.06)",
-          boxShadow: hovered ? shadowHovered : shadowIdle,
-          transform: hovered ? "translateY(-14px)" : "translateY(0)",
-          height: "100%",
-          borderRadius: "28px",
-          backdropFilter: "blur(12px)",
-          WebkitBackdropFilter: "blur(12px)",
           animationDelay: `${index * 0.15}s`,
         }}
         onMouseEnter={() => setHovered(true)}
@@ -73,16 +76,15 @@ export default function CarCard({ car, index = 0 }) {
       />
 
       {/* ══ IMAGE ══════════════════════════════════════ */}
-      <div className="relative w-full shrink-0 overflow-hidden" style={{ height: "300px" }}>
+      <div className="relative w-full shrink-0 overflow-hidden" style={{ height: "200px" }}>
         <Image
           src={imgSrc}
           alt={`${brand} ${model}`}
           fill
           priority={index < 3}
-          className="object-cover"
+          className="object-cover transition-transform duration-700 group-hover:scale-105"
           style={{ 
-            transition: "transform 0.9s ease, filter 0.9s ease",
-            transform: hovered ? "scale(1.08)" : "scale(1.0)",
+            transition: "filter 0.9s ease",
             filter: hovered ? "brightness(0.95) contrast(1.08)" : "brightness(0.82) contrast(1.05)"
           }}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -96,6 +98,9 @@ export default function CarCard({ car, index = 0 }) {
             background: "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, transparent 40%, rgba(10,10,10,0.9) 100%)",
           }}
         />
+
+        {/* Cinematic Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
 
         {/* ── Badges ── */}
         <div className="absolute top-3.5 left-3.5 right-3.5 flex items-start justify-between gap-2 z-20">
@@ -144,23 +149,22 @@ export default function CarCard({ car, index = 0 }) {
       </div>
 
       {/* ══ BODY ════════════════════════════════════════ */}
-      <div className="flex flex-col flex-1" style={{ padding: "28px" }}>
+      <div className="flex flex-col flex-1 space-y-4 p-6">
 
-        {/* Brand + Model */}
         <div className="mb-5">
           <p
             className="font-body font-semibold uppercase mb-1.5"
-            style={{ fontSize: "10px", color: GOLD, letterSpacing: "0.24em" }}
+            style={{ fontSize: "9px", color: GOLD, letterSpacing: "0.24em" }}
           >
             {brand}
           </p>
           <h3
             className="font-display transition-colors duration-300"
             style={{
-              fontSize: "34px",
+              fontSize: "28px",
               fontWeight: "700",
-              letterSpacing: "-1px",
-              marginBottom: "16px",
+              letterSpacing: "-0.5px",
+              marginBottom: "12px",
               color: hovered ? GOLD : "#ffffff",
               lineHeight: "1.1",
             }}
@@ -179,18 +183,18 @@ export default function CarCard({ car, index = 0 }) {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
                 d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
             </svg>
-            <span className="font-body capitalize" style={{ fontSize: "11px", color: "#737373" }}>{transmission}</span>
+            <span className="font-body capitalize" style={{ fontSize: "10px", color: "#737373" }}>{transmission}</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span style={{ fontSize: "13px" }}>{fuelIcons[fuelType] ?? "⛽"}</span>
-            <span className="font-body capitalize" style={{ fontSize: "11px", color: "#737373" }}>{fuelType}</span>
+            <span style={{ fontSize: "12px" }}>{fuelIcons[fuelType] ?? "⛽"}</span>
+            <span className="font-body capitalize" style={{ fontSize: "10px", color: "#737373" }}>{fuelType}</span>
           </div>
           <div className="flex items-center gap-1.5">
             <svg className="w-3.5 h-3.5 shrink-0" fill="none" stroke={GOLD} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
-            <span className="font-body" style={{ fontSize: "11px", color: "#737373" }}>{seats} seats</span>
+            <span className="font-body" style={{ fontSize: "10px", color: "#737373" }}>{seats} seats</span>
           </div>
         </div>
 
@@ -204,25 +208,25 @@ export default function CarCard({ car, index = 0 }) {
             >
               Daily Rate
             </p>
-            <div className="flex items-baseline gap-1">
+            <div className="flex items-end gap-3">
               <span
-                className="font-display"
-                style={{ fontSize: "48px", fontWeight: "800", color: "#ffffff" }}
+                className="font-display text-[56px] font-bold leading-none"
+                style={{ color: "#ffffff" }}
               >
                 {formatPrice(pricePerDay)}
               </span>
-              <span className="font-body" style={{ fontSize: "16px", color: "#ffffff", opacity: 0.6 }}>/ day</span>
+              <span className="font-body text-zinc-500 text-[18px] mb-2">/ day</span>
             </div>
           </div>
 
           {/* View Car CTA */}
           <div
-            className="relative flex items-center gap-1.5 font-body font-semibold uppercase transition-all duration-300"
-            style={{ fontSize: "11px", color: GOLD, letterSpacing: "0.12em" }}
+            className="relative flex items-center gap-1.5 font-body font-semibold uppercase transition-all duration-500 hover:tracking-[0.25em] hover:text-[#D4AF37] hover:scale-[1.03] hover:shadow-[0_0_30px_rgba(212,175,55,0.35)] p-2 rounded-lg"
+            style={{ fontSize: "10px", color: GOLD, letterSpacing: "0.12em" }}
           >
             <span>View Car</span>
             <svg
-              className="w-3.5 h-3.5 transition-transform duration-400"
+              className="w-3.5 h-3.5 transition-transform duration-500"
               style={{ transform: hovered ? "translateX(5px)" : "translateX(0)" }}
               fill="none" stroke={GOLD} viewBox="0 0 24 24"
             >

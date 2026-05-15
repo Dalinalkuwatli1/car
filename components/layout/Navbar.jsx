@@ -4,6 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import SignInButton from "@/components/ui/SignInButton";
 import AuthModal from "@/components/auth/AuthModal";
+import ListYourCarButton from "@/components/ui/ListYourCarButton";
+import ListCarModal from "@/components/modals/ListCarModal";
 
 const GOLD = "#D6B25E";
 
@@ -20,6 +22,7 @@ export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false);
   const [menuOpen, setMenuOpen]   = useState(false);
   const [authOpen, setAuthOpen]   = useState(false);
+  const [listCarOpen, setListCarOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("/");
   const menuRef = useRef(null);
 
@@ -53,9 +56,9 @@ export default function Navbar() {
           display: "flex",
           alignItems: "center",
           transition: "background 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease, backdrop-filter 0.6s ease",
-          background: "rgba(0,0,0,0.4)",
-          backdropFilter: "blur(24px)",
-          WebkitBackdropFilter: "blur(24px)",
+          background: "rgba(0,0,0,0.55)",
+          backdropFilter: "blur(40px)",
+          WebkitBackdropFilter: "blur(40px)",
           borderBottom: "1px solid rgba(255,255,255,0.1)",
           boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.6)" : "none",
         }}
@@ -174,34 +177,7 @@ export default function Navbar() {
             <SignInButton onClick={() => setAuthOpen(true)} />
 
             {/* List Your Car */}
-            <Link
-              href="/list-car"
-              className="font-body font-bold uppercase"
-              style={{
-                fontSize: "11px",
-                letterSpacing: "0.14em",
-                color: "#050505",
-                textDecoration: "none",
-                padding: "12px 26px",
-                borderRadius: "100px",
-                background: "linear-gradient(135deg, #c9a84c, #e9c15f)",
-                border: "1px solid transparent",
-                boxShadow: "0 4px 20px rgba(212,175,55,0.35)",
-                transition: "all 0.3s ease",
-                display: "inline-block",
-                whiteSpace: "nowrap",
-              }}
-              onMouseEnter={e => {
-                e.currentTarget.style.transform = "translateY(-3px)";
-                e.currentTarget.style.boxShadow = "0 0 28px rgba(212,175,55,0.55)";
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "0 4px 20px rgba(212,175,55,0.35)";
-              }}
-            >
-              List Your Car
-            </Link>
+            <ListYourCarButton onClick={() => setListCarOpen(true)} />
           </div>
 
           {/* ── Mobile hamburger ── */}
@@ -348,12 +324,12 @@ export default function Navbar() {
               onMouseEnter={e => { e.currentTarget.style.background = GOLD; e.currentTarget.style.color = "#050505"; }}
               onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "#ffffff"; }}
             >Sign In</button>
-            <Link href="/list-car" onClick={() => setMenuOpen(false)}
+            <button onClick={() => { setMenuOpen(false); setListCarOpen(true); }}
               className="font-body font-bold uppercase"
-              style={{ display: "block", textAlign: "center", padding: "14px", fontSize: "12px", letterSpacing: "0.15em", color: "#050505", textDecoration: "none", background: "linear-gradient(135deg, #c9a84c, #e9c15f)", borderRadius: "100px", boxShadow: "0 4px 20px rgba(212,175,55,0.3)", transition: "all 0.3s ease" }}
+              style={{ display: "block", textAlign: "center", padding: "14px", fontSize: "12px", letterSpacing: "0.15em", color: "#050505", border: "none", cursor: "pointer", textDecoration: "none", background: "linear-gradient(135deg, #c9a84c, #e9c15f)", borderRadius: "100px", boxShadow: "0 4px 20px rgba(212,175,55,0.3)", transition: "all 0.3s ease" }}
               onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 8px 32px rgba(212,175,55,0.5)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 4px 20px rgba(212,175,55,0.3)"; e.currentTarget.style.transform = "translateY(0)"; }}
-            >List Your Car</Link>
+            >List Your Car</button>
           </div>
         </div>
       </div>
@@ -373,6 +349,9 @@ export default function Navbar() {
 
       {/* Auth Modal */}
       <AuthModal isOpen={authOpen} onClose={() => setAuthOpen(false)} />
+
+      {/* List Car Modal */}
+      <ListCarModal isOpen={listCarOpen} onClose={() => setListCarOpen(false)} />
     </>
   );
 }

@@ -159,14 +159,14 @@ export default function BrandsGrid() {
 
   return (
     <>
-      <section className="relative w-full py-32 bg-[#050505] overflow-hidden" id="brands">
-        <div className="max-w-[1600px] mx-auto px-6 md:px-[140px] relative z-10">
+      <section className="relative w-full py-32 bg-[#050505] overflow-hidden px-8 sm:px-12 lg:px-24 xl:px-32" id="brands">
+        <div className="w-full relative z-10">
           
-          <div className="text-center mb-[140px]">
+          <div className="text-center mb-32" style={{ marginBottom: '100px' }}>
             <span className="text-[#d4af37] tracking-[5px] text-[13px] font-semibold uppercase block mb-4">
               Curated Selection
             </span>
-            <h2 className="font-display text-white text-[40px] md:text-[52px] font-bold leading-[1.15] mb-8">
+            <h2 className="font-display text-white text-[40px] md:text-[52px] font-bold leading-[1.15]">
               Featured Luxury Brands
             </h2>
           </div>
@@ -176,30 +176,43 @@ export default function BrandsGrid() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
-            className="flex flex-wrap justify-center gap-[35px]"
+            className="w-full"
+            style={{ 
+              display: 'flex', 
+              flexWrap: 'wrap', 
+              justifyContent: 'center', 
+              gap: '8px',
+              maxWidth: '1400px',
+              margin: '0 auto 120px auto'
+            }}
           >
             {brandsData.map((brand) => (
               <motion.div
                 key={brand.id}
                 variants={cardVariants}
                 onClick={() => setSelectedBrand(brand)}
-                className="group relative w-full sm:w-[260px] min-h-[240px] p-[32px] rounded-[28px] bg-white/[0.02] border border-white/[0.08] text-center transition-all duration-[400ms] ease-out hover:-translate-y-[10px] hover:border-[#D4AF37]/45 hover:shadow-[0_20px_60px_rgba(212,175,55,0.12)] cursor-pointer overflow-hidden"
+                className="
+                  group relative w-[240px] min-h-[200px] p-5 
+                  rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-xl 
+                  transition-all duration-500 hover:-translate-y-1.5 hover:border-[#D4AF37] 
+                  hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] cursor-pointer overflow-hidden flex flex-col justify-center items-center text-center
+                "
               >
                 {/* Internal Hover Glow */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/0 via-[#D4AF37]/0 to-[#D4AF37]/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <div className="relative z-10">
-                  <div className="w-[70px] h-[70px] mx-auto mb-[24px] rounded-full bg-[#D4AF37]/12 border border-[#D4AF37]/25 flex items-center justify-center transition-all duration-400 group-hover:scale-110 group-hover:bg-[#D4AF37]/20 group-hover:border-[#D4AF37]/40 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
-                    <span className="font-display text-[#D4AF37] text-[28px] font-bold">
+                <div className="relative z-10 text-center">
+                  <div className="w-[50px] h-[50px] mx-auto mb-3 rounded-full bg-[#D4AF37]/12 border border-[#D4AF37]/25 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:bg-[#D4AF37]/20 group-hover:border-[#D4AF37]/40 shadow-[0_0_15px_rgba(212,175,55,0.1)]">
+                    <span className="font-display text-[#D4AF37] text-xl font-bold">
                       {brand.name.charAt(0)}
                     </span>
                   </div>
                   
-                  <h3 className="font-display text-white text-[24px] font-bold mb-[14px] group-hover:text-[#D4AF37] transition-colors duration-300">
+                  <h3 className="font-display text-white text-lg font-bold mb-2 group-hover:text-[#D4AF37] transition-colors duration-300">
                     {brand.name}
                   </h3>
                   
-                  <p className="font-body text-white/70 text-[15px] leading-[1.7] font-light">
+                  <p className="font-body text-white/60 text-[13px] leading-relaxed font-light line-clamp-2">
                     {brand.subtitle}
                   </p>
                 </div>

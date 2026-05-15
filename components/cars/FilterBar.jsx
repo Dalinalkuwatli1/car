@@ -6,10 +6,10 @@ import { CAR_TYPES, TRANSMISSIONS, FUEL_TYPES } from "@/lib/utils";
 const FilterChip = ({ active, onClick, children }) => (
   <button
     onClick={onClick}
-    className={`px-4 py-2 rounded-xl text-sm font-body font-medium transition-all duration-200 whitespace-nowrap ${
+    className={`px-5 py-3 rounded-xl font-body transition-all duration-300 whitespace-nowrap ${
       active
-        ? "bg-gold-gradient text-obsidian-900 shadow-gold"
-        : "bg-graphite-600 text-platinum-400 border border-white/8 hover:border-gold/30 hover:text-white"
+        ? "bg-[#D4AF37] text-black font-semibold shadow-[0_0_25px_rgba(212,175,55,0.35)]"
+        : "bg-white/[0.03] text-zinc-400 text-[17px] font-medium border border-white/10 hover:border-[#D4AF37]/50 hover:text-[#D4AF37]"
     }`}
   >
     {children}
@@ -22,7 +22,7 @@ export default function FilterBar({ filters, onChange, total, filtered }) {
   const set = (key, value) => onChange({ ...filters, [key]: value });
 
   return (
-    <div className="bg-graphite-700 border border-white/6 rounded-2xl p-6 space-y-6">
+    <div className="backdrop-blur-xl border border-white/10 shadow-[0_0_60px_rgba(212,175,55,0.08)] rounded-[32px] bg-[#070707]/60 p-8 space-y-8">
       {/* Header */}
       <div className="flex items-center justify-between">
         <h2 className="font-display font-semibold text-white text-base">Filters</h2>
@@ -43,7 +43,7 @@ export default function FilterBar({ filters, onChange, total, filtered }) {
 
       {/* Car Type */}
       <div>
-        <p className="text-xs font-body font-semibold text-platinum-500 uppercase tracking-[0.15em] mb-3">
+        <p className="text-[13px] tracking-[0.28em] uppercase text-zinc-500 font-medium mb-3">
           Vehicle Type
         </p>
         <div className="flex flex-wrap gap-2">
@@ -61,7 +61,7 @@ export default function FilterBar({ filters, onChange, total, filtered }) {
 
       {/* Transmission */}
       <div>
-        <p className="text-xs font-body font-semibold text-platinum-500 uppercase tracking-[0.15em] mb-3">
+        <p className="text-[13px] tracking-[0.28em] uppercase text-zinc-500 font-medium mb-3">
           Transmission
         </p>
         <div className="flex flex-wrap gap-2">
@@ -79,7 +79,7 @@ export default function FilterBar({ filters, onChange, total, filtered }) {
 
       {/* Fuel Type */}
       <div>
-        <p className="text-xs font-body font-semibold text-platinum-500 uppercase tracking-[0.15em] mb-3">
+        <p className="text-[13px] tracking-[0.28em] uppercase text-zinc-500 font-medium mb-3">
           Fuel Type
         </p>
         <div className="flex flex-wrap gap-2">
@@ -98,7 +98,7 @@ export default function FilterBar({ filters, onChange, total, filtered }) {
       {/* Price Range */}
       <div>
         <div className="flex items-center justify-between mb-3">
-          <p className="text-xs font-body font-semibold text-platinum-500 uppercase tracking-[0.15em]">
+          <p className="text-[13px] tracking-[0.28em] uppercase text-zinc-500 font-medium">
             Max Price / Day
           </p>
           <span className="text-sm font-body font-semibold text-gold">

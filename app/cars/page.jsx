@@ -25,38 +25,51 @@ export default function CarsListingPage() {
   }, [filters]);
 
   return (
-    <main className="min-h-screen bg-obsidian-900 pt-32 pb-24">
-      {/* Page Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
-        <SectionHeader
-          heading="Our Fleet"
-          subtext="Discover our entire collection of premium vehicles. Use the filters to find the perfect match for your next journey."
-          align="left"
-        />
-      </div>
+    <div className="bg-black min-h-screen overflow-x-hidden relative">
+      
+      {/* Background Cinematic Glow */}
+      <div className="absolute top-0 left-0 right-0 h-[800px] bg-[radial-gradient(circle_at_top,rgba(212,175,55,0.15),transparent_70%)] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[600px] bg-[#D4AF37]/10 blur-[70px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar / Filters */}
-          <div className="w-full lg:w-80 shrink-0">
-            <div className="sticky top-28">
-              <FilterBar
-                filters={filters}
-                onChange={setFilters}
-                total={cars.length}
-                filtered={filteredCars.length}
-              />
-            </div>
+      {/* Header Section */}
+      <section className="relative z-10 text-center pb-16" style={{ paddingTop: "180px", marginBottom: "80px" }}>
+        <span className="text-[#d4af37] uppercase tracking-[6px] text-sm font-semibold">
+          Premium Fleet
+        </span>
+
+        <h1 className="text-white text-5xl md:text-7xl font-bold mt-4 leading-tight">
+          Discover Our Collection
+        </h1>
+
+        <div className="flex justify-center w-full mt-6">
+          <p className="text-gray-400 text-lg md:text-xl max-w-3xl text-center leading-relaxed">
+            Discover our entire collection of premium vehicles.
+            Use the filters to find the perfect match for your next journey.
+          </p>
+        </div>
+      </section>
+
+      <div className="max-w-[1500px] mx-auto grid grid-cols-1 lg:grid-cols-[450px_1fr] gap-16 px-10 relative z-10 pb-32">
+        {/* Sidebar / Filters */}
+        <div className="w-[320px]" style={{ marginLeft: "140px" }}>
+          <div className="sticky top-28">
+            <FilterBar
+              filters={filters}
+              onChange={setFilters}
+              total={cars.length}
+              filtered={filteredCars.length}
+            />
           </div>
+        </div>
 
-          {/* Grid */}
-          <div className="flex-1">
-            {filteredCars.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {filteredCars.map((car) => (
-                  <CarCard key={car.id} car={car} />
-                ))}
-              </div>
+        {/* Grid */}
+        <div className="w-full">
+          {filteredCars.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              {filteredCars.map((car) => (
+                <CarCard key={car.id} car={car} />
+              ))}
+            </div>
             ) : (
               <div className="bg-graphite-700 border border-white/6 rounded-2xl p-12 text-center flex flex-col items-center">
                 <div className="w-16 h-16 rounded-full bg-graphite-600 flex items-center justify-center text-platinum-400 mb-4">
@@ -76,9 +89,8 @@ export default function CarsListingPage() {
                 </button>
               </div>
             )}
-          </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

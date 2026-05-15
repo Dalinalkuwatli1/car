@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { LogIn } from "lucide-react";
 
-export default function SignInButton({ onClick }) {
+export default function ListYourCarButton({ onClick }) {
   return (
     <motion.button
       onClick={onClick}
@@ -16,28 +15,30 @@ export default function SignInButton({ onClick }) {
         items-center
         justify-center
         h-[46px]
-        px-6
+        px-7
         rounded-full
-        border
-        border-white/10
-        bg-white/[0.03]
-        backdrop-blur-xl
+        bg-[#D4AF37]
+        text-black
         transition-all
         duration-300
-        hover:border-[#D4AF37]/50
-        hover:bg-white/[0.08]
-        hover:shadow-[0_0_25px_rgba(212,175,55,0.15)]
+        shadow-[0_0_20px_rgba(212,175,55,0.25)]
+        hover:bg-[#F4D76B]
+        hover:shadow-[0_0_35px_rgba(212,175,55,0.45)]
         overflow-hidden
       "
     >
-      {/* Animated Glow */}
+      <span className="relative z-10 font-body text-[12px] font-bold tracking-[0.15em] uppercase">
+        LIST YOUR CAR
+      </span>
+
+      {/* Luxury shine animation */}
       <span
         className="
           absolute
           inset-0
           bg-gradient-to-r
           from-transparent
-          via-[#D4AF37]/10
+          via-white/40
           to-transparent
           -translate-x-full
           group-hover:translate-x-full
@@ -46,14 +47,6 @@ export default function SignInButton({ onClick }) {
           ease-in-out
         "
       />
-
-      {/* Content */}
-      <div className="relative z-10 flex items-center gap-2">
-        <LogIn size={15} className="text-[#D4AF37] transition-colors group-hover:text-[#F4D76B]" />
-        <span className="font-body text-[12px] font-bold tracking-[0.15em] uppercase text-white/90 group-hover:text-white transition-colors">
-          Sign In
-        </span>
-      </div>
     </motion.button>
   );
 }

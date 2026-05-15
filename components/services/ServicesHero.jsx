@@ -2,23 +2,22 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Phone } from "lucide-react";
 
 export default function ServicesHero() {
   return (
     <section className="relative min-h-[100svh] w-full flex items-center justify-start overflow-hidden pt-[80px]">
-      {/* Background Video */}
+      {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="object-cover w-full h-full scale-105"
-        >
-          {/* Re-using a luxury video we already have */}
-          <source src="/videos/porsche-911-bg.mp4" type="video/mp4" />
-        </video>
+        <Image
+          src="/images/services-hero.png"
+          alt="Velox Luxury Services"
+          fill
+          priority
+          className="object-cover scale-105"
+          quality={100}
+        />
         
         {/* Cinematic Gradient Overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/80 to-transparent z-10" />
@@ -43,7 +42,7 @@ export default function ServicesHero() {
               Luxury Services <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#F4D76B]">Designed Around You</span>
             </h1>
-            <p className="font-body text-white/78 text-[20px] leading-[1.7] mt-[24px] mb-12 max-w-[600px] mx-auto font-light tracking-wide">
+            <p className="font-body text-white/78 text-[20px] leading-[1.7] mt-[24px] mb-12 max-w-[600px] mx-auto font-light tracking-wide" style={{ marginBottom: '80px' }}>
               From executive transportation to unforgettable driving experiences, 
               Velox delivers comfort, prestige, and seamless mobility tailored to your lifestyle.
             </p>
@@ -51,7 +50,7 @@ export default function ServicesHero() {
             <div className="flex flex-col sm:flex-row gap-6">
               {/* Primary CTA */}
               <Link 
-                href="/inventory"
+                href="/cars"
                 className="group relative h-[48px] flex items-center justify-center px-6 bg-gradient-to-br from-[#D4AF37] to-[#F4D76B] rounded-[14px] text-[#050505] font-body font-bold text-[14px] uppercase tracking-[2px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(212,175,55,0.35)] overflow-hidden"
               >
                 <span className="relative z-10 flex items-center gap-3">
@@ -63,7 +62,7 @@ export default function ServicesHero() {
 
               {/* Secondary CTA */}
               <Link
-                href="/contact"
+                href="mailto:vip@veloxrentals.com"
                 className="group relative h-[48px] flex items-center justify-center px-6 bg-white/[0.03] border border-white/[0.08] backdrop-blur-md rounded-[14px] text-white font-body font-semibold text-[14px] uppercase tracking-[2px] transition-all duration-300 hover:bg-white/[0.08] hover:-translate-y-1 hover:border-white/20 hover:shadow-[0_15px_40px_rgba(0,0,0,0.5)]"
               >
                 <span className="flex items-center gap-3">

@@ -70,7 +70,7 @@ export default function ServicesGrid() {
 
       <div className="max-w-[1600px] mx-auto px-6 md:px-[140px] relative z-10">
         
-        <div className="text-center mb-[120px] flex flex-col items-center">
+        <div className="text-center flex flex-col items-center" style={{ marginBottom: '140px' }}>
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -96,7 +96,15 @@ export default function ServicesGrid() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="flex flex-wrap justify-center gap-[40px]"
+          className="w-full"
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            gap: '40px',
+            maxWidth: '1400px',
+            margin: '0 auto'
+          }}
         >
           {services.map((service) => (
             <motion.div

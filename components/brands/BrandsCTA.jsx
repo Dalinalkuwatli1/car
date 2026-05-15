@@ -29,16 +29,16 @@ export default function BrandsCTA() {
             Reserve Your Dream Vehicle Today
           </p>
           
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6" style={{ marginTop: '40px', marginBottom: '80px' }}>
             <Link 
-              href="/inventory"
+              href="/cars"
               className="w-full sm:w-auto h-[48px] px-8 flex items-center justify-center bg-gradient-to-br from-[#D4AF37] to-[#F4D76B] rounded-[14px] text-[#050505] font-body font-bold text-[14px] uppercase tracking-[2px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(212,175,55,0.35)]"
             >
               Explore Fleet
             </Link>
             
             <Link 
-              href="/contact"
+              href="mailto:vip@veloxrentals.com"
               className="w-full sm:w-auto group h-[48px] px-8 flex items-center justify-center bg-transparent border border-white/20 rounded-[14px] text-white font-body font-bold text-[14px] uppercase tracking-[2px] transition-all duration-300 hover:bg-white/[0.05] hover:-translate-y-1 hover:border-[#D4AF37]/50"
             >
               <span className="flex items-center gap-3">
