@@ -32,8 +32,8 @@ export default function CarPerformance({ performance }) {
   ];
 
   return (
-    <div ref={ref} className="py-8 border-t border-white/10">
-      <h3 className="font-display font-bold text-2xl text-white mb-8 flex items-center gap-3">
+    <div ref={ref} className="pt-8 pb-[80px] border-t border-white/10">
+      <h3 className="font-display font-bold text-2xl text-white flex items-center gap-3" style={{ marginBottom: '24px' }}>
         <span className="w-8 h-[1px] bg-[#D6B25E]" />
         Performance Metrics
       </h3>

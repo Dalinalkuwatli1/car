@@ -164,7 +164,7 @@ export default function CarCard({ car, index = 0 }) {
               fontSize: "28px",
               fontWeight: "700",
               letterSpacing: "-0.5px",
-              marginBottom: "12px",
+              marginBottom: "40px",
               color: hovered ? GOLD : "#ffffff",
               lineHeight: "1.1",
             }}

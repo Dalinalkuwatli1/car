@@ -32,7 +32,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative py-[90px] bg-[#0A0A0A] border-t border-white/[0.05]">
+    <section className="relative pt-[140px] bg-[#0A0A0A] border-t border-white/[0.05]" style={{ paddingBottom: '200px' }}>
       <div className="w-full pl-6 md:pl-[160px] pr-6 md:pr-12 relative z-10">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">

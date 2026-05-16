@@ -22,7 +22,7 @@ export default function ServicesCTA() {
           <span className="font-body text-[#D4AF37] uppercase tracking-[5px] text-[13px] font-semibold mb-6 block">
             Your Journey Awaits
           </span>
-          <h2 className="font-display text-white text-[40px] md:text-[72px] leading-[1.05] font-bold text-center max-w-[900px] mx-auto" style={{ marginBottom: '64px' }}>
+          <h2 className="font-display text-white text-[32px] md:text-[48px] leading-[1.1] font-bold text-center max-w-[900px] mx-auto" style={{ marginBottom: '48px' }}>
             Ready to Experience <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#F4D76B]">Luxury Mobility?</span>
           </h2>

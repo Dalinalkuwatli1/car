@@ -4,8 +4,8 @@ export default function CarColors({ colors, activeColor, onColorChange }) {
   if (!colors || colors.length === 0) return null;
 
   return (
-    <div className="py-8 border-t border-white/10">
-      <h3 className="font-display font-bold text-2xl text-white mb-8 flex items-center gap-3">
+    <div className="pt-[60px] border-t border-white/10" style={{ paddingBottom: '100px' }}>
+      <h3 className="font-display font-bold text-2xl text-white flex items-center gap-3" style={{ marginBottom: '40px' }}>
         <span className="w-8 h-[1px] bg-[#D6B25E]" />
         Available Colors
       </h3>

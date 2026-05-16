@@ -15,11 +15,11 @@ export default function CarSpecs({ car }) {
   ];
 
   return (
-    <div className="space-y-12 py-8 border-t border-white/10">
+    <div className="space-y-12 pt-[100px] pb-8 border-t border-white/10">
       
       {/* ── Technical Specifications ── */}
-      <div>
-        <h3 className="font-display font-bold text-2xl text-white mb-8 flex items-center gap-3">
+      <div style={{ marginBottom: '80px' }}>
+        <h3 className="font-display font-bold text-2xl text-white flex items-center gap-3" style={{ marginTop: '60px', marginBottom: '40px' }}>
           <span className="w-8 h-[1px] bg-[#D6B25E]" />
           Technical Specifications
         </h3>
@@ -55,12 +55,12 @@ export default function CarSpecs({ car }) {
 
       {/* ── Premium Amenities ── */}
       <div>
-        <h3 className="font-display font-bold text-2xl text-white mb-8 flex items-center gap-3">
+        <h3 className="font-display font-bold text-2xl text-white flex items-center gap-3" style={{ marginBottom: '20px' }}>
           <span className="w-8 h-[1px] bg-[#D6B25E]" />
           Included Amenities
         </h3>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12" style={{ marginBottom: '80px' }}>
           {features?.map((feature, i) => (
             <div key={i} className="flex items-center gap-4 group">
               <svg className="w-6 h-6 text-[#D6B25E] shrink-0 opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">

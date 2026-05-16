@@ -56,10 +56,10 @@ export default function CarClientView({ car, relatedCars }) {
         <CarGallery gallery={gallery} video={car.video} brand={car.brand} model={car.model} />
       </div>
 
-      <div className="max-w-[1600px] mx-auto px-6 md:px-[60px] py-[100px]">
+      <div className="max-w-[1600px] mx-auto px-6 md:px-[60px] pt-[160px] pb-[100px]">
         
         {/* Breadcrumbs */}
-        <div className="flex items-center gap-2 text-xs font-body text-gray-500 tracking-widest uppercase mb-10">
+        <div className="flex items-center gap-2 text-xs font-body text-gray-500 tracking-widest uppercase mb-[80px]" style={{ paddingLeft: '80px' }}>
           <Link href="/" className="hover:text-[#D6B25E] transition-colors">Home</Link>
           <span>/</span>
           <Link href="/cars" className="hover:text-[#D6B25E] transition-colors">Fleet</Link>
@@ -70,13 +70,13 @@ export default function CarClientView({ car, relatedCars }) {
         <div className="flex flex-col lg:flex-row gap-16 relative">
           
           {/* ── Left Column: Content ── */}
-          <div className="flex-1 space-y-0">
+          <div className="flex-1 space-y-0" style={{ paddingLeft: '80px' }}>
             
             {/* 2. Vehicle Title */}
             <FadeInView>
-              <div className="mb-[40px]">
-                <p className="text-[14px] font-condensed text-[#D6B25E] tracking-[0.3em] uppercase mb-4">{car.brand}</p>
-                <h1 className="font-display font-bold text-4xl md:text-6xl text-white tracking-tight mb-6">
+              <div style={{ marginBottom: '80px' }}>
+                <p className="text-[18px] font-condensed text-[#D6B25E] tracking-[0.3em] uppercase mb-4">{car.brand}</p>
+                <h1 className="font-display font-bold text-4xl md:text-[48px] lg:text-[56px] text-white tracking-tight leading-[1.05] mb-8">
                   {car.model}
                 </h1>
                 
@@ -89,7 +89,7 @@ export default function CarClientView({ car, relatedCars }) {
                     </div>
                   )}
                   {car.badge && (
-                    <span className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-xs font-condensed text-white uppercase tracking-widest">
+                    <span className="px-4 py-1.5 bg-white/5 border border-white/10 rounded-full text-sm font-condensed text-white uppercase tracking-widest">
                       {car.badge}
                     </span>
                   )}
@@ -120,28 +120,28 @@ export default function CarClientView({ car, relatedCars }) {
 
             {/* 6. Driving Experience */}
             <FadeInView>
-              <div className="py-[100px] border-t border-white/10">
+              <div className="pt-[100px] border-t border-white/10" style={{ paddingBottom: '100px' }}>
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
                   
                   {/* Left Side: Stats Anchors */}
                   <div className="md:col-span-4 space-y-12">
                     <div>
-                      <h4 className="font-display text-4xl text-white mb-2">{car.performance?.acceleration || "3.5s"}</h4>
-                      <p className="text-sm font-condensed text-[#D6B25E] uppercase tracking-widest">0-100 km/h</p>
+                      <h4 className="font-display text-3xl text-white mb-2">{car.performance?.acceleration || "3.5s"}</h4>
+                      <p className="text-[11px] font-condensed text-[#D6B25E] uppercase tracking-widest">0-100 km/h</p>
                     </div>
                     <div>
-                      <h4 className="font-display text-4xl text-white mb-2">{car.performance?.topSpeed || "308 km/h"}</h4>
-                      <p className="text-sm font-condensed text-[#D6B25E] uppercase tracking-widest">Top Speed</p>
+                      <h4 className="font-display text-3xl text-white mb-2">{car.performance?.topSpeed || "308 km/h"}</h4>
+                      <p className="text-[11px] font-condensed text-[#D6B25E] uppercase tracking-widest">Top Speed</p>
                     </div>
                     <div>
-                      <h4 className="font-display text-4xl text-white mb-2">{car.performance?.power || "450 hp"}</h4>
-                      <p className="text-sm font-condensed text-[#D6B25E] uppercase tracking-widest">Power Output</p>
+                      <h4 className="font-display text-3xl text-white mb-2">{car.performance?.power || "450 hp"}</h4>
+                      <p className="text-[11px] font-condensed text-[#D6B25E] uppercase tracking-widest">Power Output</p>
                     </div>
                   </div>
 
                   {/* Right Side: Editorial Text */}
                   <div className="md:col-span-8">
-                    <h3 className="font-display font-bold text-3xl text-white mb-[40px] flex items-center gap-3">
+                    <h3 className="font-display font-bold text-2xl text-white flex items-center gap-3" style={{ marginBottom: '20px' }}>
                       <span className="w-8 h-[1px] bg-[#D6B25E]" />
                       The Experience
                     </h3>
@@ -151,7 +151,7 @@ export default function CarClientView({ car, relatedCars }) {
                         maxWidth: "900px",
                         lineHeight: "1.9",
                         color: "#b8b8b8",
-                        fontSize: "20px"
+                        fontSize: "16px"
                       }}
                     >
                       <p className="mb-6">
@@ -172,8 +172,8 @@ export default function CarClientView({ car, relatedCars }) {
 
             {/* 7. Rental Terms */}
             <FadeInView>
-              <div className="py-[100px] border-t border-white/10">
-                <h3 className="font-display font-bold text-2xl text-white mb-[40px] flex items-center gap-3">
+              <div className="pt-[100px] border-t border-white/10" style={{ paddingBottom: '100px' }}>
+                <h3 className="font-display font-bold text-2xl text-white flex items-center gap-3" style={{ marginBottom: '20px' }}>
                   <span className="w-8 h-[1px] bg-[#D6B25E]" />
                   Rental Terms
                 </h3>
@@ -202,7 +202,7 @@ export default function CarClientView({ car, relatedCars }) {
             {reviews.length > 0 && (
               <FadeInView>
                 <div className="py-[100px] border-t border-white/10">
-                  <h3 className="font-display font-bold text-2xl text-white mb-[40px] flex items-center gap-3">
+                  <h3 className="font-display font-bold text-2xl text-white flex items-center gap-3" style={{ marginBottom: '20px' }}>
                     <span className="w-8 h-[1px] bg-[#D6B25E]" />
                     Client Testimonials
                   </h3>
@@ -240,14 +240,17 @@ export default function CarClientView({ car, relatedCars }) {
         {/* 9. Similar Vehicles */}
         {relatedCars.length > 0 && (
           <FadeInView>
-            <div className="mt-8 pt-[100px] border-t border-white/10">
-              <h2 className="font-display font-bold text-3xl text-white mb-[40px] flex items-center gap-4">
+            <div className="pt-[60px] border-t border-white/10" style={{ paddingBottom: '160px' }}>
+              <h2 className="font-display font-bold text-3xl text-white flex justify-center items-center gap-10 text-center" style={{ marginBottom: '80px' }}>
                 <span className="w-12 h-[2px] bg-[#D6B25E]" />
                 Similar Vehicles
+                <span className="w-12 h-[2px] bg-[#D6B25E]" />
               </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="flex flex-wrap justify-center gap-8">
                 {relatedCars.map((relatedCar, idx) => (
-                  <CarCard key={relatedCar.id} car={relatedCar} index={idx} />
+                  <div key={relatedCar.id} className="w-full sm:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)] max-w-[450px]">
+                    <CarCard car={relatedCar} index={idx} />
+                  </div>
                 ))}
               </div>
             </div>
