@@ -38,11 +38,11 @@ export default function ServicesHero() {
             <span className="font-body text-[#D4AF37] uppercase tracking-[5px] text-sm md:text-base font-semibold mb-6 block">
               Redefining Mobility
             </span>
-            <h1 className="font-display text-white text-[50px] md:text-[78px] leading-[1.05] font-bold mb-0 max-w-[800px] drop-shadow-2xl">
+            <h1 className="font-display text-white text-[36px] md:text-[54px] leading-[1.1] font-bold mb-0 max-w-[800px] drop-shadow-2xl">
               Luxury Services <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#F4D76B]">Designed Around You</span>
             </h1>
-            <p className="font-body text-white/78 text-[20px] leading-[1.7] mt-[24px] mb-12 max-w-[600px] mx-auto font-light tracking-wide" style={{ marginBottom: '80px' }}>
+            <p className="font-body text-white/70 text-[15px] md:text-[16px] leading-[1.7] mt-[24px] mb-12 max-w-[600px] mx-auto font-light tracking-wide" style={{ marginBottom: '80px' }}>
               From executive transportation to unforgettable driving experiences, 
               Velox delivers comfort, prestige, and seamless mobility tailored to your lifestyle.
             </p>

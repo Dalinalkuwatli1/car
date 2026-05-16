@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function VipExperience() {
   return (
-    <section className="relative h-[80vh] min-h-[600px] w-full flex items-center justify-center overflow-hidden">
+    <section className="relative py-[30px] w-full flex items-center justify-center overflow-hidden">
       
       {/* Background Media */}
       <div className="absolute inset-0 w-full h-full">
@@ -32,10 +32,10 @@ export default function VipExperience() {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="flex flex-col items-center text-center"
         >
-          <span className="font-body text-[#D4AF37] uppercase tracking-[5px] text-[13px] font-semibold mb-6 block">
+          <span className="font-body text-[#D4AF37] uppercase tracking-[5px] text-[13px] font-semibold mb-1 block">
             The Elite Standard
           </span>
-          <h2 className="font-display text-white text-[40px] md:text-[52px] leading-[1.15] font-bold mb-[24px] drop-shadow-2xl">
+          <h2 className="font-display text-white text-[40px] md:text-[52px] leading-[1.15] font-bold mb-1 drop-shadow-2xl">
             Redefining <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] to-[#F4D76B]">Luxury Mobility</span>
           </h2>
           <p className="font-body text-white/80 text-[16px] md:text-[18px] leading-[1.8] max-w-3xl mx-auto font-light tracking-wide">

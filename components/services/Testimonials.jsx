@@ -32,7 +32,7 @@ export default function Testimonials() {
     <section className="relative w-full py-[140px] bg-[#050505] overflow-hidden">
       <div className="relative z-10" style={{ width: '100%', maxWidth: '1600px', margin: '0 auto' }}>
         
-        <div className="text-center flex flex-col items-center" style={{ marginBottom: '80px', paddingLeft: '24px', paddingRight: '24px' }}>
+        <div className="text-center flex flex-col items-center" style={{ marginBottom: '20px', paddingLeft: '24px', paddingRight: '24px' }}>
           <span className="font-body text-[#D4AF37] uppercase tracking-[5px] text-[13px] font-semibold mb-4 block">
             Client Experiences
           </span>
