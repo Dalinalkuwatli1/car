@@ -68,9 +68,9 @@ export default function ServicesGrid() {
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#D4AF37]/[0.02] blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-[#D4AF37]/[0.02] blur-[120px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[1600px] mx-auto px-6 md:px-[140px] relative z-10">
+      <div className="relative z-10" style={{ width: '100%', maxWidth: '1600px', margin: '0 auto' }}>
         
-        <div className="text-center flex flex-col items-center" style={{ marginBottom: '140px' }}>
+        <div className="text-center flex flex-col items-center" style={{ marginBottom: '80px', paddingLeft: '24px', paddingRight: '24px' }}>
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -96,21 +96,27 @@ export default function ServicesGrid() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="w-full"
           style={{
             display: 'flex',
             flexWrap: 'wrap',
             justifyContent: 'center',
-            gap: '40px',
-            maxWidth: '1400px',
-            margin: '0 auto'
+            alignItems: 'stretch',
+            gap: '32px',
+            width: '100%',
+            maxWidth: '1200px',
+            margin: '0 auto',
+            paddingLeft: '24px',
+            paddingRight: '24px',
+            paddingBottom: '80px',
+            boxSizing: 'border-box'
           }}
         >
           {services.map((service) => (
             <motion.div
               key={service.id}
               variants={cardVariants}
-              className="group relative w-full sm:w-[320px] bg-white/[0.02] border border-white/[0.08] rounded-[30px] p-[40px] flex flex-col items-center text-center transition-all duration-[400ms] ease-out hover:-translate-y-[10px] hover:border-[#D4AF37]/45 hover:shadow-[0_20px_60px_rgba(212,175,55,0.12)] min-h-[300px] overflow-hidden"
+              className="group relative bg-white/[0.02] border border-white/[0.08] rounded-[30px] p-[40px] flex flex-col items-center text-center transition-all duration-[400ms] ease-out hover:-translate-y-[10px] hover:border-[#D4AF37]/45 hover:shadow-[0_20px_60px_rgba(212,175,55,0.12)] overflow-hidden"
+              style={{ width: '340px', flexShrink: 0, minHeight: '300px' }}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/0 via-[#D4AF37]/0 to-[#D4AF37]/[0.04] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 

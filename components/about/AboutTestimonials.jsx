@@ -10,7 +10,7 @@ export default function AboutTestimonials() {
       {/* Background Cinematic Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#D4AF37]/[0.05] blur-[150px] rounded-full pointer-events-none" />
 
-      <div className="max-w-[1600px] mx-auto px-6 md:px-[140px] relative z-10 text-center">
+      <div className="relative z-10 w-full" style={{ maxWidth: '1600px', margin: '0 auto', padding: '0 24px' }}>
         
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -21,7 +21,7 @@ export default function AboutTestimonials() {
         >
           <Quote size={48} className="text-[#D4AF37]/40 mb-[40px]" />
           
-          <h3 className="font-display text-white text-[32px] md:text-[46px] leading-[1.3] font-light mb-[50px] max-w-[900px] mx-auto text-center">
+          <h3 className="font-display text-white text-[24px] md:text-[32px] leading-[1.4] font-light mb-[120px] max-w-[800px] mx-auto text-center italic">
             "The most seamless luxury rental experience in London. Their attention to detail and concierge support is unmatched."
           </h3>
           
@@ -36,8 +36,8 @@ export default function AboutTestimonials() {
               <span className="font-display text-[#D4AF37] font-bold text-[18px]">MA</span>
             </div>
             <div className="text-center">
-              <span className="font-display text-white text-[20px] font-bold block mb-1">Michael Anderson</span>
-              <span className="font-body text-[#D4AF37] text-[13px] uppercase tracking-[3px] font-semibold">Executive Client</span>
+              <span className="font-display text-white text-[24px] font-bold block mb-1">Michael Anderson</span>
+              <span className="font-body text-[#D4AF37] text-[15px] uppercase tracking-[3px] font-semibold">Executive Client</span>
             </div>
           </div>
         </motion.div>

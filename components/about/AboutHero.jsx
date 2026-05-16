@@ -5,25 +5,20 @@ import { motion } from "framer-motion";
 export default function AboutHero() {
   return (
     <section className="relative min-h-[100svh] w-full flex items-center justify-start overflow-hidden pt-[80px]">
-      {/* Background Video */}
+      {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="object-cover w-full h-full scale-105"
-        >
-          {/* Re-using bentley-bg.mp4 for the emotional storytelling feel */}
-          <source src="/videos/bentley-bg.mp4" type="video/mp4" />
-        </video>
+        <img 
+          src="/images/about-hero.png" 
+          alt="Luxury Car Hero"
+          className="object-cover w-full h-full"
+        />
         
         {/* Cinematic Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/70 to-transparent z-10" />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/50 via-transparent to-[#050505] z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/60 to-transparent z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/40 via-transparent to-[#050505] z-10" />
         
         {/* Ambient Gold Glow */}
-        <div className="absolute left-0 top-1/4 w-[800px] h-[800px] bg-[#D4AF37]/[0.08] blur-[150px] rounded-full pointer-events-none z-10" />
+        <div className="absolute left-0 top-1/4 w-[800px] h-[800px] bg-[#D4AF37]/[0.05] blur-[150px] rounded-full pointer-events-none z-10" />
       </div>
 
       <div className="relative z-20 mx-auto w-full px-6 pt-[40px] max-w-4xl flex flex-col items-center text-center">

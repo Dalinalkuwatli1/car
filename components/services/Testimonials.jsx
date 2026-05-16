@@ -30,9 +30,9 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <section className="relative w-full py-[140px] bg-[#050505] overflow-hidden">
-      <div className="max-w-[1600px] mx-auto px-6 md:px-[140px] relative z-10 text-center">
+      <div className="relative z-10" style={{ width: '100%', maxWidth: '1600px', margin: '0 auto' }}>
         
-        <div className="text-center mb-[120px] flex flex-col items-center">
+        <div className="text-center flex flex-col items-center" style={{ marginBottom: '80px', paddingLeft: '24px', paddingRight: '24px' }}>
           <span className="font-body text-[#D4AF37] uppercase tracking-[5px] text-[13px] font-semibold mb-4 block">
             Client Experiences
           </span>
@@ -41,7 +41,7 @@ export default function Testimonials() {
           </h2>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-[40px]">
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'stretch', gap: '32px', maxWidth: '1260px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px', paddingBottom: '80px', boxSizing: 'border-box' }}>
           {testimonials.map((testimonial, i) => (
             <motion.div
               key={testimonial.id}
@@ -49,7 +49,8 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
-              className="group relative w-full sm:w-[400px] bg-[#0A0A0A] border border-white/[0.05] rounded-[30px] p-[50px] text-center flex flex-col items-center transition-all duration-[400ms] hover:-translate-y-2 hover:border-[#D4AF37]/30 hover:shadow-[0_15px_40px_rgba(212,175,55,0.08)] min-h-[350px]"
+              className="group relative bg-[#0A0A0A] border border-white/[0.05] rounded-[30px] p-[50px] text-center flex flex-col items-center transition-all duration-[400ms] hover:-translate-y-2 hover:border-[#D4AF37]/30 hover:shadow-[0_15px_40px_rgba(212,175,55,0.08)]"
+              style={{ width: '380px', flexShrink: 0, minHeight: '350px' }}
             >
               {/* Stars */}
               <div className="flex justify-center gap-1 mb-8">

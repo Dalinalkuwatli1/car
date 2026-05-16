@@ -35,9 +35,9 @@ export default function FAQ() {
       {/* Luxury Background Glow */}
       <div className="absolute top-[20%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#D4AF37]/[0.05] blur-[120px] z-[-1] pointer-events-none" />
 
-      <div className="w-full relative z-10 px-6">
+      <div className="relative z-10" style={{ width: '100%', maxWidth: '1600px', margin: '0 auto' }}>
         
-        <div className="text-center mb-[100px] flex flex-col items-center">
+        <div className="text-center flex flex-col items-center" style={{ marginBottom: '80px', paddingLeft: '24px', paddingRight: '24px' }}>
           <span className="font-body text-[#D4AF37] uppercase tracking-[6px] text-[13px] font-semibold mb-[24px] block">
             Information
           </span>
@@ -46,7 +46,7 @@ export default function FAQ() {
           </h2>
         </div>
 
-        <div className="w-full max-w-[950px] mx-auto">
+        <div style={{ width: '100%', maxWidth: '950px', margin: '0 auto', paddingLeft: '24px', paddingRight: '24px', paddingBottom: '80px', boxSizing: 'border-box' }}>
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             
