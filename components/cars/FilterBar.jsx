@@ -7,11 +7,10 @@ import { FaCar, FaCogs, FaGasPump, FaDollarSign, FaRedo } from "react-icons/fa";
 const FilterChip = ({ active, onClick, children }) => (
   <button
     onClick={onClick}
-    className={`px-6 py-3 rounded-full font-body text-[15px] font-semibold transition-all duration-300 whitespace-nowrap tracking-wide flex items-center justify-center ${
-      active
+    className={`px-6 py-3 rounded-full font-body text-[15px] font-semibold transition-all duration-300 whitespace-nowrap tracking-wide flex items-center justify-center ${active
         ? "text-[#050505] shadow-[0_4px_15px_rgba(201,168,76,0.25)]"
         : "bg-white/[0.03] text-white/50 border border-white/10 hover:border-[#c9a84c]/50 hover:text-white hover:bg-white/[0.05]"
-    }`}
+      }`}
     style={{
       background: active ? "linear-gradient(135deg, #c9a84c, #e9c15f)" : "",
     }}
@@ -25,7 +24,7 @@ export default function FilterBar({ filters, onChange, total, filtered }) {
 
   return (
     <div className="backdrop-blur-xl border-red-600 border-4 shadow-[0_25px_60px_rgba(0,0,0,0.6)] rounded-[36px] bg-[#070707]/95 space-y-6 max-w-full" style={{ paddingTop: '40px', paddingBottom: '40px', paddingLeft: '40px', paddingRight: '40px' }}>
-      
+
       {/* ── Header ── */}
       <div className="flex items-center justify-between pb-6 border-b border-white/5">
         <div className="space-y-2">
@@ -113,7 +112,7 @@ export default function FilterBar({ filters, onChange, total, filtered }) {
             ${filters.maxPrice === 1000 ? "1,000+" : filters.maxPrice}
           </span>
         </div>
-        
+
         <div className="relative pt-2">
           <input
             type="range"
@@ -128,7 +127,7 @@ export default function FilterBar({ filters, onChange, total, filtered }) {
             }}
           />
         </div>
-        
+
         <div className="flex justify-between text-xs text-white/30 font-body">
           <span>$50</span>
           <span>$1,000+</span>

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function TermsPage() {
   return (
     <main className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] py-20">
-      
+
       {/* ── Ambient background atmosphere ── */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Radial gold glows for luxury depth */}
@@ -37,7 +37,7 @@ export default function TermsPage() {
               <div className="w-8 h-px" style={{ background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
             </div>
 
-            <h1 
+            <h1
               className="font-display font-bold text-white tracking-tight"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: "1.1" }}
             >
@@ -48,7 +48,7 @@ export default function TermsPage() {
                 backgroundClip: "text",
               }}>Conditions.</span>
             </h1>
-            
+
             <p className="font-body font-normal text-white/50 max-w-[600px] mx-auto text-sm leading-relaxed tracking-wide" style={{ marginTop: "20px" }}>
               We provide the most transparent and fair service. Please review the detailed information about rental agreements, liabilities, and rules below.
             </p>
@@ -56,7 +56,7 @@ export default function TermsPage() {
 
           {/* ── Details Grid ── */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-12">
-            
+
             {/* Card 1: Rental Agreement */}
             <div className="backdrop-blur-xl bg-white/[0.02] border border-white/10 p-12 rounded-[28px] flex flex-col items-center text-center gap-5 min-h-[260px] justify-center transition-all duration-500 hover:border-[#c9a84c]/30 hover:bg-white/[0.04]">
               <div className="text-[#c9a84c] text-2xl font-bold font-display tracking-tight">01. Agreement</div>

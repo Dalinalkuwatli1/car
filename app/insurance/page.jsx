@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function InsurancePage() {
   return (
     <main className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] py-20">
-      
+
       {/* ── Ambient background atmosphere ── */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Radial gold glows for luxury depth */}
@@ -37,7 +37,7 @@ export default function InsurancePage() {
               <div className="w-8 h-px" style={{ background: "linear-gradient(90deg, #c9a84c, transparent)" }} />
             </div>
 
-            <h1 
+            <h1
               className="font-display font-bold text-white tracking-tight"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: "1.1" }}
             >
@@ -48,7 +48,7 @@ export default function InsurancePage() {
                 backgroundClip: "text",
               }}>Policy.</span>
             </h1>
-            
+
             <p className="font-body font-normal text-white/50 max-w-[600px] mx-auto text-sm leading-relaxed tracking-wide" style={{ marginTop: "20px" }}>
               At Velox Rentals, we ensure your journey is as secure as it is exhilarating. Explore our comprehensive coverage options designed for luxury performance.
             </p>
@@ -56,7 +56,7 @@ export default function InsurancePage() {
 
           {/* ── Details Grid (3 Columns or stacked cards) ── */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mt-12">
-            
+
             {/* Card 1: Coverage */}
             <div className="backdrop-blur-xl bg-white/[0.02] border border-white/10 p-12 rounded-[28px] flex flex-col items-center text-center gap-5 min-h-[260px] justify-center transition-all duration-500 hover:border-[#c9a84c]/30 hover:bg-white/[0.04]">
               <div className="text-[#c9a84c] text-2xl font-bold font-display tracking-tight">01. Coverage</div>

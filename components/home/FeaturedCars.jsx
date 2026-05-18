@@ -86,7 +86,7 @@ export default function FeaturedCars() {
         </div>
 
         {/* ── Vehicle Grid ── */}
-        <div 
+        <div
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 420px), 1fr))",

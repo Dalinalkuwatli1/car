@@ -11,18 +11,18 @@ import ListCarModal from "@/components/modals/ListCarModal";
 const GOLD = "#D6B25E";
 
 const navLinks = [
-  { label: "Home",      href: "/" },
+  { label: "Home", href: "/" },
   { label: "Inventory", href: "/cars" },
-  { label: "Brands",    href: "/brands" },
-  { label: "Services",  href: "/services" },
-  { label: "About Us",  href: "/about" },
-  { label: "Contact",   href: "#contact" },
+  { label: "Brands", href: "/brands" },
+  { label: "Services", href: "/services" },
+  { label: "About Us", href: "/about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const [authOpen, setAuthOpen]   = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [authOpen, setAuthOpen] = useState(false);
   const [listCarOpen, setListCarOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("/");
   const menuRef = useRef(null);
@@ -218,8 +218,8 @@ export default function Navbar() {
                   transition: "all 0.35s ease",
                   transform: menuOpen
                     ? i === 0 ? "rotate(45deg) translate(4.5px, 4.5px)"
-                    : i === 1 ? "scaleX(0) opacity(0)"
-                    : "-rotate-45deg translate(4.5px, -4.5px)"
+                      : i === 1 ? "scaleX(0) opacity(0)"
+                        : "-rotate-45deg translate(4.5px, -4.5px)"
                     : "none",
                   opacity: menuOpen && i === 1 ? 0 : 1,
                 }}
