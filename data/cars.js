@@ -14,71 +14,56 @@ const cars = [
     engine: "3.0L Twin-Turbo Flat-Six, 450 hp",
     topSpeed: "308 km/h",
     acceleration: "3.5s 0–100 km/h",
-    description:
-      "The Porsche 911 Carrera S is an icon of precision engineering. With its rear-engine layout, twin-turbocharged flat-six, and razor-sharp handling, it delivers a driving experience unlike any other. Finished in exclusive Gentian Blue Metallic.",
-    features: [
-      "PASM Sport Suspension",
-      "Sport Chrono Package",
-      "Bose Surround Sound",
-      "360° Surround View Camera",
-      "Lane Keep Assist",
-      "Heated Sport Seats",
-      "PDLS+ Adaptive LED",
-      "Apple CarPlay",
-      "Sport Exhaust System",
-    ],
-    image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1000&q=80",
+    description: "The Porsche 911 Carrera S is an icon of precision engineering.",
+    features: ["PASM Suspension", "Sport Chrono", "Bose Audio", "LED Matrix"],
+    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1000&q=80",
     video: "https://videos.pexels.com/video-files/5309381/5309381-hd_1920_1080_25fps.mp4",
     isFeatured: true,
     available: true,
     badge: "Most Popular",
-    doors: 4,
-    luggage: 2,
-    color: "Signature",
     rating: 4.9,
-    bookingCount: 124,
-    performance: { speed: 95, comfort: 90, luxury: 92, economy: 60 },
-    video: "https://videos.pexels.com/video-files/3141208/3141208-hd_1920_1080_25fps.mp4",
-    gallery: [
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80",
-      "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80",
-      "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80",
-      "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=1200&q=80"
-    ],
     colors: [
-      {
-        name: "Black Sapphire",
-        hex: "#0b0b0b",
+      { 
+        name: "Shark Blue", 
+        hex: "#0062a3", 
+        filter: "none",
         gallery: [
-          "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80",
-          "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80",
-          "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80"
-        ]
+          "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1611821064430-0d40291d0f0b?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1611016186353-9af58c69a533?w=1200&q=80"
+        ] 
       },
-      {
-        name: "Glacier White",
-        hex: "#f5f5f5",
+      { 
+        name: "Guards Red", 
+        hex: "#d5001c", 
+        filter: "none",
         gallery: [
-          "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80",
-          "https://images.unsplash.com/photo-1583121274602-3e2820c69888?w=1200&q=80",
-          "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80"
-        ]
+          "https://images.unsplash.com/photo-1525609004556-c46c7d6cf0a3?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1611821064430-0d40291d0f0b?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1611016186353-9af58c69a533?w=1200&q=80"
+        ] 
       },
-      {
-        name: "Midnight Blue",
-        hex: "#101b3b",
+      { 
+        name: "Jet Black", 
+        hex: "#000000", 
+        filter: "none",
         gallery: [
-          "https://images.unsplash.com/photo-1609521263047-f8f205293f24?w=1200&q=80",
-          "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1200&q=80",
-          "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80"
-        ]
+          "https://images.unsplash.com/photo-1611245789456-c2eb8cbf5e7a?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1611821064430-0d40291d0f0b?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1611016186353-9af58c69a533?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Racing Yellow", 
+        hex: "#ffcc00", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1611821064430-0d40291d0f0b?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1611016186353-9af58c69a533?w=1200&q=80"
+        ] 
       }
-    ],
-    reviews: [
-      { customer: "Alexander Sterling", rating: 5, date: "2024-04-12", comment: "An absolutely flawless experience. The car was immaculate and the service was world-class." },
-      { customer: "James R.", rating: 5, date: "2024-03-28", comment: "Exceeded all expectations. Perfect delivery and the vehicle performed beautifully." },
-      { customer: "Michael T.", rating: 4.8, date: "2024-02-15", comment: "Incredible machine. The rental process was smooth and entirely hassle-free." }
-    ],
+    ]
   },
   {
     id: "2",
@@ -88,31 +73,56 @@ const cars = [
     type: "luxury",
     pricePerDay: 420,
     transmission: "automatic",
-    fuelType: "petrol",
-    seats: 4,
     year: 2024,
-    mileage: "5,100 km",
-    engine: "4.0L V8 Biturbo, 639 hp",
-    topSpeed: "315 km/h",
-    acceleration: "3.2s 0–100 km/h",
-    description:
-      "The AMG GT 63 S 4-Door Coupé merges supercar performance with four-seat practicality. Its handcrafted 4.0L V8 Biturbo engine delivers blistering performance with the refinement of a true executive express.",
-    features: [
-      "AMG RIDE CONTROL+",
-      "AMG Performance Exhaust",
-      "Burmester 3D Surround Sound",
-      "AMG Track Pace",
-      "Night Package",
-      "Carbon Fibre Interior Trim",
-      "Widescreen Cockpit Display",
-      "Ventilated Massage Seats",
-      "Active Rear-Wheel Steering",
-    ],
-    image: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1000&q=80",
-    video: "https://videos.pexels.com/video-files/3752531/3752531-hd_1920_1080_25fps.mp4",
+    description: "The AMG GT 63 S merges supercar performance with executive luxury.",
+    image: "/mercedes_gt63_red_front.png",
+    video: "https://videos.pexels.com/video-files/4488931/4488931-hd_1920_1080_25fps.mp4",
     isFeatured: true,
     available: true,
     badge: "New Arrival",
+    rating: 4.9,
+    colors: [
+      { 
+        name: "Jupiter Red", 
+        hex: "#8b0000", 
+        filter: "none",
+        gallery: [
+          "/mercedes_gt63_red_front.png", 
+          "/mercedes_gt63_red_rear.png", 
+          "/mercedes_gt63_red_interior.png"
+        ] 
+      },
+      { 
+        name: "Magno Grey", 
+        hex: "#3e4144", 
+        filter: "none",
+        gallery: [
+          "/mercedes_gt63_grey_front.png", 
+          "/mercedes_gt63_red_rear.png", 
+          "/mercedes_gt63_red_interior.png"
+        ] 
+      },
+      { 
+        name: "Obsidian Black", 
+        hex: "#0a0a0a", 
+        filter: "none",
+        gallery: [
+          "/mercedes_gt63_black_front.png", 
+          "/mercedes_gt63_red_rear.png", 
+          "/mercedes_gt63_red_interior.png"
+        ] 
+      },
+      { 
+        name: "Polar White", 
+        hex: "#ffffff", 
+        filter: "none",
+        gallery: [
+          "/mercedes_gt63_white_front.png", 
+          "/mercedes_gt63_red_rear.png", 
+          "/mercedes_gt63_red_interior.png"
+        ] 
+      }
+    ]
   },
   {
     id: "3",
@@ -122,31 +132,55 @@ const cars = [
     type: "luxury",
     pricePerDay: 350,
     transmission: "automatic",
-    fuelType: "petrol",
-    seats: 5,
     year: 2024,
-    mileage: "7,800 km",
-    engine: "4.4L V8 TwinPower Turbo, 625 hp",
-    topSpeed: "305 km/h",
-    acceleration: "3.3s 0–100 km/h",
-    description:
-      "The M5 Competition is the pinnacle of the BMW M lineup — a four-door performance sedan that combines track-level precision with daily usability. Available in iconic Isle of Man Green.",
-    features: [
-      "M xDrive AWD",
-      "Carbon Ceramic Brakes",
-      "M Sport Exhaust",
-      "Laser Headlights",
-      "Heads-Up Display",
-      "Harman Kardon Surround",
-      "M Driver's Package",
-      "Gesture Control",
-      "Parking Assistant Pro",
-    ],
-    image: "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=1000&q=80",
+    description: "The M5 Competition is the ultimate performance sedan.",
+    image: "/bmw_m5_front_34_1778958277651.png",
     video: "https://videos.pexels.com/video-files/4488931/4488931-hd_1920_1080_25fps.mp4",
     isFeatured: true,
     available: true,
-    badge: null,
+    rating: 4.8,
+    colors: [
+      { 
+        name: "Marina Bay Blue", 
+        hex: "#2b4b7c", 
+        filter: "none",
+        gallery: [
+          "/bmw_m5_front_34_1778958277651.png", 
+          "/bmw_m5_side_profile_1778958636326.png", 
+          "/bmw_m5_rear_34_1778958651976.png"
+        ] 
+      },
+      { 
+        name: "Deep Grey Magno", 
+        hex: "#4a4a4a", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=1200&q=80", 
+          "/bmw_m5_side_profile_1778958636326.png", 
+          "/bmw_m5_rear_34_1778958651976.png"
+        ] 
+      },
+      { 
+        name: "Isle of Man Green", 
+        hex: "#004d3d", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1508974239320-0a029497e820?w=1200&q=80", 
+          "/bmw_m5_side_profile_1778958636326.png", 
+          "/bmw_m5_rear_34_1778958651976.png"
+        ] 
+      },
+      { 
+        name: "Alpine White", 
+        hex: "#ffffff", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80", 
+          "/bmw_m5_side_profile_1778958636326.png", 
+          "/bmw_m5_rear_34_1778958651976.png"
+        ] 
+      }
+    ]
   },
   {
     id: "4",
@@ -155,66 +189,80 @@ const cars = [
     model: "Huracán EVO",
     type: "sports",
     pricePerDay: 950,
-    transmission: "automatic",
-    fuelType: "petrol",
-    seats: 2,
     year: 2023,
-    mileage: "2,400 km",
-    engine: "5.2L V10 Naturally Aspirated, 640 hp",
-    topSpeed: "325 km/h",
-    acceleration: "2.9s 0–100 km/h",
-    description:
-      "The Huracán EVO is pure, undiluted Lamborghini. Its naturally aspirated V10 screams to 8,500 rpm, delivering a visceral symphony of performance and a driving experience reserved for the bold.",
-    features: [
-      "LDVI Vehicle Dynamics System",
-      "Lamborghini Doppia Frizione",
-      "Carbon Ceramic Brakes",
-      "Magneto-Rheological Suspension",
-      "Alcantara Interior",
-      "8.4-inch Touchscreen",
-      "Front Lift System",
-      "Rear-View Camera",
-      "Navigation System",
-    ],
-    image: "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?w=1000&q=80",
+    image: "/huracan_evo_front_orange_1778961306219.png",
     video: "https://videos.pexels.com/video-files/4006151/4006151-hd_1920_1080_25fps.mp4",
     isFeatured: true,
-    available: false,
-    badge: "Exclusive",
+    available: true,
+    rating: 4.9,
+    colors: [
+      { 
+        name: "Arancio Xanto", 
+        hex: "#ff6a00", 
+        filter: "none",
+        gallery: [
+          "/huracan_evo_front_orange_1778961306219.png", 
+          "/huracan_evo_side_orange_1778961352209.png", 
+          "https://images.unsplash.com/photo-1621135802920-133df287f89c?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Verde Mantis", 
+        hex: "#43c018", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80", 
+          "/huracan_evo_side_orange_1778961352209.png", 
+          "https://images.unsplash.com/photo-1621135802920-133df287f89c?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Giallo Belenus", 
+        hex: "#ffee00", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80", 
+          "/huracan_evo_side_orange_1778961352209.png", 
+          "https://images.unsplash.com/photo-1621135802920-133df287f89c?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Nero Noctis", 
+        hex: "#000000", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1611245789456-c2eb8cbf5e7a?w=1200&q=80", 
+          "/huracan_evo_side_orange_1778961352209.png", 
+          "https://images.unsplash.com/photo-1621135802920-133df287f89c?w=1200&q=80"
+        ] 
+      }
+    ]
   },
   {
     id: "5",
     slug: "range-rover-autobiography",
     brand: "Range Rover",
-    model: "Autobiography LWB",
+    model: "Autobiography",
     type: "suv",
     pricePerDay: 320,
-    transmission: "automatic",
-    fuelType: "petrol",
-    seats: 5,
     year: 2024,
-    mileage: "11,200 km",
-    engine: "4.4L P530 V8, 530 hp",
-    topSpeed: "250 km/h",
-    acceleration: "4.6s 0–100 km/h",
-    description:
-      "The Range Rover Autobiography LWB represents the pinnacle of British luxury. Hand-crafted interior, class-leading off-road capability, and a commanding road presence make it the world's most desirable SUV.",
-    features: [
-      "Executive Class Rear Seats",
-      "Meridian Signature Sound System",
-      "Pixel-Laser LED Headlights",
-      "Terrain Response 2",
-      "Air Suspension",
-      "Four-Zone Climate Control",
-      "Massage Rear Seats",
-      "Panoramic Sunroof",
-      "Wade Sensing",
-    ],
     image: "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1000&q=80",
     video: "https://videos.pexels.com/video-files/3141208/3141208-hd_1920_1080_25fps.mp4",
     isFeatured: true,
     available: true,
-    badge: "Best Seller",
+    rating: 4.8,
+    colors: [
+      { 
+        name: "Santorini Black", 
+        hex: "#000000", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      }
+    ]
   },
   {
     id: "6",
@@ -223,32 +271,54 @@ const cars = [
     model: "Model S Plaid",
     type: "luxury",
     pricePerDay: 280,
-    transmission: "automatic",
-    fuelType: "electric",
-    seats: 5,
     year: 2024,
-    mileage: "8,900 km",
-    engine: "Tri-Motor Electric, 1,020 hp",
-    topSpeed: "322 km/h",
-    acceleration: "2.1s 0–100 km/h",
-    description:
-      "The Tesla Model S Plaid is the world's fastest production sedan. Its tri-motor all-wheel drive system produces 1,020 hp, launching it from 0–100 km/h in a mind-bending 2.1 seconds with zero emissions.",
-    features: [
-      "Full Self-Driving Capability",
-      "17-inch Cinematic Display",
-      "22-Speaker Audio System",
-      "Over-the-Air Updates",
-      "Carbon Fibre Trim",
-      "Glass Roof",
-      "Sentry Mode",
-      "Dog Mode",
-      "643 km EPA Range",
-    ],
     image: "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=1000&q=80",
     video: "https://videos.pexels.com/video-files/5309381/5309381-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
-    badge: "Electric",
+    rating: 4.7,
+    colors: [
+      { 
+        name: "Stealth Grey", 
+        hex: "#4a4a4a", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Solid Black", 
+        hex: "#0c0c0c", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1571127236894-93c0029b39d4?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Ultra Red", 
+        hex: "#8b0000", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1541565907959-43d95a3b638f?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Pearl White", 
+        hex: "#ffffff", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1531306728370-e2ebd9d7bb99?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617788138017-80ad40651399?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1619767886558-efdc259cde1a?w=1200&q=80"
+        ] 
+      }
+    ]
   },
   {
     id: "7",
@@ -257,66 +327,80 @@ const cars = [
     model: "RS7 Sportback",
     type: "luxury",
     pricePerDay: 310,
-    transmission: "automatic",
-    fuelType: "petrol",
-    seats: 5,
     year: 2024,
-    mileage: "9,600 km",
-    engine: "4.0L V8 TFSI, 600 hp",
-    topSpeed: "305 km/h",
-    acceleration: "3.6s 0–100 km/h",
-    description:
-      "The Audi RS7 Sportback is a masterclass in performance-meets-practicality. With its sleek fastback silhouette, thunderous V8, and quattro all-wheel drive, it is equally at home on the autobahn and in executive circles.",
-    features: [
-      "quattro AWD",
-      "RS Sport Exhaust",
-      "Bang & Olufsen 3D Advanced Sound",
-      "Night Vision Assistant",
-      "Matrix LED Headlights",
-      "Air Suspension",
-      "MMI Touch Response",
-      "Panoramic Sunroof",
-      "Dynamic Steering",
-    ],
     image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=1000&q=80",
-    video: "https://videos.pexels.com/video-files/3752531/3752531-hd_1920_1080_25fps.mp4",
+    video: "https://videos.pexels.com/video-files/4488931/4488931-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
-    badge: null,
+    rating: 4.8,
+    colors: [
+      { 
+        name: "Nardo Grey", 
+        hex: "#8e9091", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Mythos Black", 
+        hex: "#0c0c0c", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Tango Red", 
+        hex: "#a80000", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Glacier White", 
+        hex: "#ffffff", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      }
+    ]
   },
   {
     id: "8",
     slug: "bentley-continental-gt",
     brand: "Bentley",
-    model: "Continental GT V8",
+    model: "Continental GT",
     type: "luxury",
     pricePerDay: 680,
-    transmission: "automatic",
-    fuelType: "petrol",
-    seats: 4,
     year: 2023,
-    mileage: "4,100 km",
-    engine: "4.0L V8 Twin-Turbo, 550 hp",
-    topSpeed: "318 km/h",
-    acceleration: "4.0s 0–100 km/h",
-    description:
-      "The Continental GT is Bentley's definitive Grand Tourer — a hand-built masterpiece that fuses automotive art with engineering excellence. Every surface is crafted from the finest materials, from the diamond-quilted leather to the engine-turned aluminium fascia.",
-    features: [
-      "Hand-Stitched Leather Interior",
-      "Naim Audio System",
-      "Rotating Display Panel",
-      "Massage Front Seats",
-      "All-Wheel Drive",
-      "Carbon Fibre Body Kit",
-      "Head-Up Display",
-      "Night Vision",
-      "Bentley Dynamic Ride",
-    ],
     image: "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1000&q=80",
     video: "https://videos.pexels.com/video-files/4488931/4488931-hd_1920_1080_25fps.mp4",
     isFeatured: true,
     available: true,
-    badge: "Ultra Luxury",
+    rating: 4.9,
+    colors: [
+      { 
+        name: "British Racing Green", 
+        hex: "#004225", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1508974239320-0a029497e820?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      }
+    ]
   },
   {
     id: "9",
@@ -325,32 +409,54 @@ const cars = [
     model: "Mustang Shelby GT500",
     type: "sports",
     pricePerDay: 220,
-    transmission: "manual",
-    fuelType: "petrol",
-    seats: 4,
     year: 2023,
-    mileage: "14,300 km",
-    engine: "5.2L Supercharged V8, 760 hp",
-    topSpeed: "290 km/h",
-    acceleration: "3.3s 0–100 km/h",
-    description:
-      "The most powerful street-legal Ford Mustang ever built. The GT500 features a hand-built 5.2L Predator V8 with a supercharger, mated to a 7-speed Tremec dual-clutch transmission that fires off shifts in 80ms.",
-    features: [
-      "760 hp Predator V8",
-      "Tremec 7-Speed DCT",
-      "MagneRide 4 Suspension",
-      "Brembo Carbon Ceramic Brakes",
-      "Recaro Sport Seats",
-      "B&O Sound System",
-      "Ford Track Apps",
-      "Line Lock",
-      "Launch Control",
-    ],
-    image: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1000&q=80",
-    video: "https://videos.pexels.com/video-files/4006151/4006151-hd_1920_1080_25fps.mp4",
+    image: "https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/4488931/4488931-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
-    badge: null,
+    rating: 4.8,
+    colors: [
+      { 
+        name: "Grabber Blue", 
+        hex: "#00a1ff", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1612461081702-86144e070927?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Twister Orange", 
+        hex: "#ff8c00", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1612461081702-86144e070927?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Race Red", 
+        hex: "#ff0000", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1612461081702-86144e070927?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Oxford White", 
+        hex: "#ffffff", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1612461081702-86144e070927?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      }
+    ]
   },
   {
     id: "10",
@@ -359,32 +465,54 @@ const cars = [
     model: "Land Cruiser 300",
     type: "suv",
     pricePerDay: 195,
-    transmission: "automatic",
-    fuelType: "diesel",
-    seats: 7,
     year: 2024,
-    mileage: "18,700 km",
-    engine: "3.5L Twin-Turbo V6 Diesel, 309 hp",
-    topSpeed: "210 km/h",
-    acceleration: "7.2s 0–100 km/h",
-    description:
-      "The Land Cruiser 300 is the definitive expedition vehicle. Built to conquer any terrain on earth while delivering a refined, spacious cabin for seven — it has earned its legendary status over 70 years of production.",
-    features: [
-      "Multi-Terrain Select",
-      "Crawl Control",
-      "E-KDSS Suspension",
-      "14-inch Touchscreen",
-      "JBL Premium Audio",
-      "7-Seat Configuration",
-      "360° Camera System",
-      "Active Height Control Suspension",
-      "Kinetic Dynamic Suspension System",
-    ],
     image: "https://images.unsplash.com/photo-1594502184342-2e12f877aa73?w=1000&q=80",
     video: "https://videos.pexels.com/video-files/3141208/3141208-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
-    badge: null,
+    rating: 4.7,
+    colors: [
+      { 
+        name: "Precious White", 
+        hex: "#fcfcfc", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1594502184342-2e12f877aa73?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Attitude Black", 
+        hex: "#1a1a1a", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Avant-Garde Bronze", 
+        hex: "#6a5d4d", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1508974239320-0a029497e820?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Silver Metallic", 
+        hex: "#c0c0c0", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      }
+    ]
   },
   {
     id: "11",
@@ -393,66 +521,110 @@ const cars = [
     model: "Golf GTI Clubsport",
     type: "economy",
     pricePerDay: 89,
-    transmission: "automatic",
-    fuelType: "petrol",
-    seats: 5,
     year: 2023,
-    mileage: "22,100 km",
-    engine: "2.0L TSI, 300 hp",
-    topSpeed: "270 km/h",
-    acceleration: "5.6s 0–100 km/h",
-    description:
-      "The GTI Clubsport is the hot hatch perfected. With 300 hp, a seven-speed DSG, and tuned suspension, it delivers performance that embarrasses cars twice its price — while seating five in practical comfort.",
-    features: [
-      "7-Speed DSG",
-      "Akrapovic Exhaust",
-      "DCC Adaptive Chassis Control",
-      "Harman Kardon Sound",
-      "10-inch Digital Cockpit Pro",
-      "Front Limited-Slip Differential",
-      "Nappa Leather Sport Seats",
-      "Wireless Apple CarPlay",
-      "Park Distance Control",
-    ],
     image: "https://images.unsplash.com/photo-1590362891991-f776e747a588?w=1000&q=80",
     video: "https://videos.pexels.com/video-files/5309381/5309381-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
-    badge: "Best Value",
+    rating: 4.6,
+    colors: [
+      { 
+        name: "Pure White", 
+        hex: "#ffffff", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1590362891991-f776e747a588?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Kings Red", 
+        hex: "#a00000", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Moonstone Grey", 
+        hex: "#8e9091", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Atlantic Blue", 
+        hex: "#1e3a5f", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      }
+    ]
   },
   {
     id: "12",
     slug: "honda-civic-type-r",
     brand: "Honda",
-    model: "Civic Type R",
+    model: "Civic Type R (FL5)",
     type: "economy",
     pricePerDay: 95,
-    transmission: "manual",
-    fuelType: "petrol",
-    seats: 5,
     year: 2024,
-    mileage: "9,200 km",
-    engine: "2.0L VTEC Turbo, 329 hp",
-    topSpeed: "275 km/h",
-    acceleration: "5.4s 0–100 km/h",
-    description:
-      "The Civic Type R is the most driver-focused front-wheel-drive car ever produced. Its turbocharged VTEC engine, limited-slip differential, and adaptive suspension make it a true track weapon that's perfectly civilised on the daily commute.",
-    features: [
-      "6-Speed Manual Gearbox",
-      "Limited-Slip Differential",
-      "Adaptive Damper System",
-      "Type R Performance Monitor",
-      "Brembo 4-Piston Front Brakes",
-      "Recaro Sport Seats",
-      "Honda Sensing Safety Suite",
-      "9-inch Honda Connect",
-      "Track Mode",
-    ],
-    image: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=1000&q=80",
-    video: "https://videos.pexels.com/video-files/3752531/3752531-hd_1920_1080_25fps.mp4",
+    image: "https://images.unsplash.com/photo-1617624991444-2f3b9bf1c25b?w=1000&q=80",
+    video: "https://videos.pexels.com/video-files/5309381/5309381-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
-    badge: null,
+    rating: 4.9,
+    colors: [
+      { 
+        name: "Championship White", 
+        hex: "#fcfcfc", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1617624991444-2f3b9bf1c25b?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1600706432502-75a0e286b92b?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Rallye Red", 
+        hex: "#b22222", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1600706432502-75a0e286b92b?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1600706432502-75a0e286b92b?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Boost Blue", 
+        hex: "#007bff", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1600706432502-75a0e286b92b?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Crystal Black", 
+        hex: "#0c0c0c", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1571127236894-93c0029b39d4?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1600706432502-75a0e286b92b?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      }
+    ]
   },
   {
     id: "13",
@@ -461,33 +633,56 @@ const cars = [
     model: "Cayenne Turbo E-Hybrid",
     type: "suv",
     pricePerDay: 340,
-    transmission: "automatic",
-    fuelType: "petrol",
-    seats: 5,
     year: 2024,
-    mileage: "6,700 km",
-    engine: "4.0L V8 Turbo + Electric, 739 hp",
-    topSpeed: "295 km/h",
-    acceleration: "3.7s 0–100 km/h",
-    description:
-      "The Cayenne Turbo E-Hybrid is proof that performance and sustainability need not be mutually exclusive. Its plug-in hybrid system combines a 4.0L twin-turbo V8 with a high-voltage electric motor for 739 hp of seamless, silent power.",
-    features: [
-      "E-Hybrid Drive System",
-      "PASM Air Suspension",
-      "Porsche 4D Chassis Control",
-      "Burmester High-End Audio",
-      "Night Vision Assistant",
-      "Rear-Axle Steering",
-      "Panoramic Roof System",
-      "Ventilated 18-way Seats",
-      "Off-Road Mode",
-    ],
-    image: "https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=1000&q=80",
+    image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1000&q=80",
     video: "https://videos.pexels.com/video-files/4488931/4488931-hd_1920_1080_25fps.mp4",
     isFeatured: false,
     available: true,
     badge: "Hybrid",
-  },
+    rating: 4.8,
+    colors: [
+      { 
+        name: "Carrara White", 
+        hex: "#fcfcfc", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Jet Black Metallic", 
+        hex: "#020202", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1563720223185-11003d516935?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Quarzite Grey", 
+        hex: "#5a5e62", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      },
+      { 
+        name: "Montego Blue", 
+        hex: "#1e3a5f", 
+        filter: "none",
+        gallery: [
+          "https://images.unsplash.com/photo-1508974239320-0a029497e820?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1606016159991-dfe4f2746ad5?w=1200&q=80", 
+          "https://images.unsplash.com/photo-1617531653332-bd46c24f2068?w=1200&q=80"
+        ] 
+      }
+    ]
+  }
 ];
 
 export default cars;

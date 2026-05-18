@@ -53,7 +53,7 @@ export default function CarClientView({ car, relatedCars }) {
     <>
       {/* ── 1. Hero Gallery ── */}
       <div className="pt-20">
-        <CarGallery gallery={gallery} video={car.video} brand={car.brand} model={car.model} />
+        <CarGallery gallery={gallery} video={car.video} brand={car.brand} model={car.model} activeColor={activeColor} />
       </div>
 
       <div className="max-w-[1600px] mx-auto px-6 md:px-[60px] pt-[160px] pb-[100px]">

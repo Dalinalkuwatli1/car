@@ -2,6 +2,7 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Calendar, Flag, Star, Settings, DollarSign, Gauge } from "lucide-react";
+import Link from "next/link";
 
 export default function BrandModal({ brand, isOpen, onClose }) {
   if (!brand) return null;
@@ -34,7 +35,7 @@ export default function BrandModal({ brand, isOpen, onClose }) {
               {/* Close Button */}
               <button
                 onClick={onClose}
-                className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.05] border border-white/10 text-white/70 hover:bg-white/10 hover:text-white transition-all duration-300"
+                className="absolute top-6 right-6 z-20 w-10 h-10 flex items-center justify-center rounded-full bg-white/[0.05] border border-white/10 text-white/70 hover:bg-white/10 hover:text-white transition-all duration-300"
               >
                 <X size={20} />
               </button>
@@ -117,12 +118,13 @@ export default function BrandModal({ brand, isOpen, onClose }) {
 
                 {/* CTA */}
                 <div className="flex justify-end">
-                  <button 
+                  <Link 
+                    href="/cars"
                     onClick={onClose}
-                    className="h-[48px] px-8 bg-gradient-to-br from-[#D4AF37] to-[#F4D76B] rounded-[14px] text-[#050505] font-body font-bold text-[14px] uppercase tracking-[2px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(212,175,55,0.35)]"
+                    className="h-[48px] px-8 bg-gradient-to-br from-[#D4AF37] to-[#F4D76B] rounded-[14px] text-[#050505] font-body font-bold text-[14px] uppercase tracking-[2px] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(212,175,55,0.35)] flex items-center justify-center"
                   >
                     Explore {brand.name} Fleet
-                  </button>
+                  </Link>
                 </div>
 
               </div>
