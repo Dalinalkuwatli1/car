@@ -66,7 +66,7 @@ export default function ListCarModal({ isOpen, onClose }) {
     tracking-wide
     font-body
     transition-all duration-300
-    focus:border-[#D4AF37]
+    focus:border-[#c9a84c]
     focus:bg-white/[0.05]
     focus:outline-none
   `;
@@ -78,7 +78,7 @@ export default function ListCarModal({ isOpen, onClose }) {
           className="
             fixed
             inset-0
-            z-[100]
+            z-[1000]
             flex
             items-center
             justify-center
@@ -89,161 +89,166 @@ export default function ListCarModal({ isOpen, onClose }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.3 }}
         >
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.7 }}
-            className="
-              relative
-              w-full
-              max-w-[520px]
-              rounded-[32px]
-              border
-              border-white/10
-              bg-[#070707]
-              p-6 md:p-8
-              shadow-[0_0_80px_rgba(0,0,0,0.9)]
-              backdrop-blur-2xl
-              overflow-hidden
-            "
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full max-w-lg mx-auto rounded-[24px] border border-white/10 bg-[#0A0A0A] p-6 md:p-8 shadow-[0_30px_70px_rgba(0,0,0,0.7)] overflow-hidden"
           >
             {/* Cinematic Background Glow */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#D4AF3720,transparent_60%)] pointer-events-none" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#c9a84c15,transparent_60%)] pointer-events-none" />
 
-            {/* Professional Close Button */}
+            {/* Close Button */}
             <button
               onClick={onClose}
               className="
-                absolute top-6 right-6 z-50
-                w-12 h-12
+                absolute top-5 right-5 z-50
+                w-9 h-9
                 rounded-full
-                border border-white/10
-                bg-white/[0.03]
-                backdrop-blur-xl
+                bg-white/[0.05]
                 flex items-center justify-center
                 transition-all duration-300
-                hover:border-[#D4AF37]
-                hover:bg-[#D4AF37]/10
-                hover:rotate-90
+                hover:bg-white/[0.1]
+                hover:scale-105
                 group
               "
             >
-              <X size={20} className="text-white/70 group-hover:text-[#D4AF37] transition-colors" />
+              <X size={16} className="text-white/70 group-hover:text-white transition-colors" />
             </button>
 
             {!isSuccess ? (
               <div className="relative z-10">
-                {/* Header Layout */}
-                <div className="mb-8 pr-12">
-                  <p className="mb-2 text-[11px] tracking-[0.45em] text-[#D4AF37] uppercase font-semibold">
-                    Partnership
-                  </p>
+                {/* Header */}
+                <div className="mb-6 mt-28 text-center flex flex-col items-center">
+                  <div className="flex items-center gap-3 mb-3 justify-center">
+                    <div className="h-px w-5 bg-[#c9a84c]/60" />
+                    <p className="text-[12px] text-[#c9a84c] font-bold uppercase tracking-[0.35em] font-body">
+                      Partnership
+                    </p>
+                    <div className="h-px w-5 bg-[#c9a84c]/60" />
+                  </div>
                   <h2
                     className="
-                      text-3xl md:text-4xl
+                      text-3xl
                       font-bold
-                      leading-[1.15]
                       text-white
                       font-display
-                      mb-3
+                      mb-1.5
                     "
                   >
                     List Your Luxury Car
                   </h2>
-                  <p className="text-zinc-400 text-[14px] leading-[1.7] font-body">
+                  <p className="text-zinc-500 text-[14px] leading-[1.5] font-body max-w-[340px]">
                     Join our exclusive fleet. Provide your details and our concierge team will contact you.
                   </p>
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                  <input
-                    type="text"
-                    required
-                    placeholder="Full Name"
-                    className={inputStyles}
-                  />
-
-                  <input
-                    type="email"
-                    required
-                    placeholder="Email Address"
-                    className={inputStyles}
-                  />
-
-                  <input
-                    type="text"
-                    required
-                    placeholder="Car Brand & Model (e.g. Porsche 911)"
-                    className={inputStyles}
-                  />
-
-                  {/* Premium Upload Area */}
-                  <div 
-                    onClick={() => fileInputRef.current?.click()}
-                    onDragOver={handleDragOver}
-                    onDrop={handleDrop}
-                    className="
-                      relative
-                      w-full 
-                      border border-dashed border-white/15
-                      rounded-2xl
-                      bg-gradient-to-b from-white/[0.03] to-transparent
-                      py-8 px-6
-                      flex flex-col items-center justify-center text-center cursor-pointer 
-                      transition-all duration-500
-                      hover:border-[#D4AF37]
-                      hover:bg-[#D4AF37]/[0.03]
-                      group
-                    "
-                  >
-                    <input 
-                      type="file" 
-                      ref={fileInputRef} 
-                      onChange={handleFileChange} 
-                      accept="image/*" 
-                      multiple 
-                      className="hidden" 
+                <form onSubmit={handleSubmit} className="flex flex-col gap-5 pl-4">
+                  {/* Full Name */}
+                  <div className="flex flex-col gap-2">
+                    <label className="text-[11px] font-semibold uppercase tracking-[0.22em] text-zinc-400 font-body">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Mohammed Al-Salem"
+                      className={inputStyles}
                     />
-
-                    {selectedImages.length > 0 ? (
-                      <div className="flex flex-col items-center animate-in fade-in zoom-in duration-300">
-                        <CheckCircle2 size={40} className="text-[#D4AF37] mb-3" />
-                        <p className="font-display text-white text-[16px] font-bold mb-1">
-                          {selectedImages.length} Image{selectedImages.length > 1 ? 's' : ''} Ready
-                        </p>
-                        <p 
-                          className="font-body text-zinc-500 text-[13px] hover:text-white transition-colors mt-1"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            setSelectedImages([]);
-                          }}
-                        >
-                          Remove selection
-                        </p>
-                      </div>
-                    ) : (
-                      <div className="flex flex-col items-center">
-                        <UploadCloud size={40} className="text-[#D4AF37] mb-3 opacity-80 group-hover:opacity-100 transition-opacity" />
-                        <p className="font-display text-white text-[15px] font-bold mb-1">Upload Vehicle Images</p>
-                        <p className="font-body text-zinc-500 text-[13px]">Drag & drop or click to browse</p>
-                      </div>
-                    )}
                   </div>
 
-                  <textarea
-                    required
-                    placeholder="Tell us about your vehicle... (Condition, location)"
-                    className={`
-                      ${inputStyles}
-                      h-[120px]
-                      py-4
-                      resize-none
-                    `}
-                  />
+                  {/* Email */}
+                  <div className="flex flex-col gap-2">
+                    <label className="text-[11px] font-semibold uppercase tracking-[0.22em] text-zinc-400 font-body">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      placeholder="e.g. name@email.com"
+                      className={inputStyles}
+                    />
+                  </div>
+
+                  {/* Car Model */}
+                  <div className="flex flex-col gap-2">
+                    <label className="text-[11px] font-semibold uppercase tracking-[0.22em] text-zinc-400 font-body">
+                      Car Brand &amp; Model
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Porsche 911, Ferrari Roma"
+                      className={inputStyles}
+                    />
+                  </div>
+
+                  {/* Upload Area */}
+                  <div className="flex flex-col gap-2">
+                    <label className="text-[11px] font-semibold uppercase tracking-[0.22em] text-zinc-400 font-body">
+                      Vehicle Images
+                    </label>
+                    <div 
+                      onClick={() => fileInputRef.current?.click()}
+                      onDragOver={handleDragOver}
+                      onDrop={handleDrop}
+                      className="
+                        relative w-full 
+                        border border-dashed border-white/10
+                        rounded-xl bg-white/[0.02]
+                        py-6 px-4
+                        flex flex-col items-center justify-center text-center cursor-pointer 
+                        transition-all duration-300
+                        hover:border-[#c9a84c]/50 hover:bg-white/[0.04]
+                        group
+                      "
+                    >
+                      <input 
+                        type="file" 
+                        ref={fileInputRef} 
+                        onChange={handleFileChange} 
+                        accept="image/*" 
+                        multiple 
+                        className="hidden" 
+                      />
+                      {selectedImages.length > 0 ? (
+                        <div className="flex flex-col items-center animate-in fade-in zoom-in duration-300">
+                          <CheckCircle2 size={28} className="text-[#c9a84c] mb-2" />
+                          <p className="font-display text-white text-[14px] font-bold mb-0.5">
+                            {selectedImages.length} Image{selectedImages.length > 1 ? 's' : ''} Ready
+                          </p>
+                          <p 
+                            className="font-body text-zinc-500 text-[11px] hover:text-white transition-colors mt-0.5"
+                            onClick={(e) => { e.stopPropagation(); setSelectedImages([]); }}
+                          >
+                            Remove selection
+                          </p>
+                        </div>
+                      ) : (
+                        <div className="flex flex-col items-center">
+                          <UploadCloud size={28} className="text-[#c9a84c] mb-2 opacity-80 group-hover:opacity-100 transition-opacity" />
+                          <p className="font-display text-white text-[14px] font-bold mb-0.5">Upload Vehicle Images</p>
+                          <p className="font-body text-zinc-500 text-[11px]">Drag &amp; drop or click to browse</p>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <div className="flex flex-col gap-2">
+                    <label className="text-[11px] font-semibold uppercase tracking-[0.22em] text-zinc-400 font-body">
+                      Vehicle Description
+                    </label>
+                    <textarea
+                      required
+                      placeholder="Tell us about your vehicle... (Condition, location, year)"
+                      className={`${inputStyles} h-[100px] py-3 resize-none`}
+                    />
+                  </div>
 
                   {/* Submit Button */}
                   <button
@@ -252,51 +257,33 @@ export default function ListCarModal({ isOpen, onClose }) {
                     className="
                       relative
                       w-full
-                      h-[60px]
-                      mt-2
-                      rounded-xl
-                      bg-[#D4AF37]
-                      text-black
-                      font-semibold
-                      tracking-[0.2em]
+                      h-[52px]
+                      mt-1
+                      rounded-full
+                      bg-[#c9a84c]
+                      text-[#050505]
+                      font-bold
                       text-[14px]
-                      transition-all duration-500
-                      hover:scale-[1.02]
-                      hover:shadow-[0_0_30px_rgba(212,175,55,0.45)]
-                      active:scale-[0.98]
+                      transition-all duration-300
+                      hover:scale-[1.01]
+                      hover:shadow-[0_10px_20px_rgba(201,168,76,0.2)]
+                      active:scale-[0.99]
                       disabled:opacity-80
                       disabled:hover:scale-100
                       overflow-hidden
-                      group
+                      font-body
                     "
                   >
-                    <span className="relative z-10 font-display font-bold">
+                    <span className="relative z-10 uppercase tracking-wider">
                       {isSubmitting ? (
-                        <div className="flex items-center justify-center gap-3">
-                          <div className="w-5 h-5 border-2 border-black/20 border-t-black rounded-full animate-spin" />
-                          SUBMITTING...
+                        <div className="flex items-center justify-center gap-2">
+                          <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
+                          Submitting...
                         </div>
                       ) : (
-                        "SUBMIT VEHICLE"
+                        "Submit Vehicle"
                       )}
                     </span>
-
-                    {!isSubmitting && (
-                      <span
-                        className="
-                          absolute
-                          inset-0
-                          bg-gradient-to-r
-                          from-transparent
-                          via-white/30
-                          to-transparent
-                          -translate-x-full
-                          group-hover:translate-x-full
-                          transition-transform
-                          duration-1000
-                        "
-                      />
-                    )}
                   </button>
                 </form>
               </div>
@@ -305,13 +292,13 @@ export default function ListCarModal({ isOpen, onClose }) {
               <motion.div 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="flex flex-col items-center justify-center text-center py-16 relative z-10"
+                className="flex flex-col items-center justify-center text-center py-10 relative z-10"
               >
-                <div className="w-20 h-20 rounded-full bg-[#D4AF37]/10 flex items-center justify-center mb-6 border border-[#D4AF37]/30 shadow-[0_0_40px_rgba(212,175,55,0.2)]">
-                  <CheckCircle2 size={40} className="text-[#D4AF37]" />
+                <div className="w-14 h-14 rounded-full bg-[#c9a84c]/10 flex items-center justify-center mb-5 border border-[#c9a84c]/20">
+                  <CheckCircle2 size={28} className="text-[#c9a84c]" />
                 </div>
-                <h3 className="font-display text-[32px] font-bold text-white mb-3">Request Received</h3>
-                <p className="font-body text-zinc-400 text-[15px] leading-[1.7] max-w-[300px] mx-auto">
+                <h3 className="font-display text-[24px] font-bold text-white mb-1.5">Request Received</h3>
+                <p className="font-body text-zinc-400 text-[13px] leading-[1.5] max-w-[280px] mx-auto">
                   Our concierge team will review your luxury vehicle details and contact you within 24 hours.
                 </p>
               </motion.div>

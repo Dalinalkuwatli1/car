@@ -14,6 +14,17 @@ export default function CarSpecs({ car }) {
     { label: "Year", value: year },
   ];
 
+  const amenities = features && features.length > 0 ? features : [
+    "Premium Audio System",
+    "GPS Navigation with Live Traffic",
+    "Heated & Ventilated Leather Seats",
+    "Apple CarPlay & Android Auto",
+    "Adaptive Cruise Control",
+    "24/7 Luxury Roadside Assistance",
+    "Complimentary Bottled Water",
+    "Full Tank on Delivery",
+  ];
+
   return (
     <div className="space-y-12 pt-[100px] pb-8 border-t border-white/10">
       
@@ -52,7 +63,7 @@ export default function CarSpecs({ car }) {
           ))}
         </div>
       </div>
-
+ 
       {/* ── Premium Amenities ── */}
       <div>
         <h3 className="font-display font-bold text-2xl text-white flex items-center gap-3" style={{ marginBottom: '20px' }}>
@@ -61,7 +72,7 @@ export default function CarSpecs({ car }) {
         </h3>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12" style={{ marginBottom: '80px' }}>
-          {features?.map((feature, i) => (
+          {amenities.map((feature, i) => (
             <div key={i} className="flex items-center gap-4 group">
               <svg className="w-6 h-6 text-[#D6B25E] shrink-0 opacity-80 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />

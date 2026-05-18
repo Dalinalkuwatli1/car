@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { FaCcVisa, FaCcMastercard, FaCcAmex, FaCcPaypal } from "react-icons/fa";
 
 const GOLD = "#D4AF37";
 
@@ -13,11 +14,11 @@ const fleetLinks = [
 ];
 
 const companyLinks = [
-  { label: "About Velox", href: "#about" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Insurance Policy", href: "#" },
-  { label: "Terms & Conditions", href: "#" },
-  { label: "Privacy Policy", href: "#" },
+  { label: "About Velox", href: "/about" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Insurance Policy", href: "/insurance" },
+  { label: "Terms & Conditions", href: "/terms" },
+  { label: "Privacy Policy", href: "/privacy" },
 ];
 
 const socialLinks = [
@@ -267,21 +268,37 @@ export default function Footer() {
             >
               Accepted payments:
             </span>
-            {["VISA", "MC", "AMEX", "PayPal"].map((p) => (
+            {[
+              { id: "visa", icon: <FaCcVisa size={28} /> },
+              { id: "mc", icon: <FaCcMastercard size={28} /> },
+              { id: "amex", icon: <FaCcAmex size={28} /> },
+              { id: "paypal", icon: <FaCcPaypal size={28} /> },
+            ].map((p) => (
               <span
-                key={p}
-                className="font-mono"
+                key={p.id}
                 style={{
-                  fontSize: "12px",
-                  padding: "4px 8px",
-                  borderRadius: "5px",
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(255,255,255,0.07)",
-                  color: "rgba(232,232,232,0.35)",
-                  letterSpacing: "0.05em",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: "4px",
+                  borderRadius: "6px",
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "rgba(255,255,255,0.6)",
+                  transition: "all 0.3s ease",
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.1)";
+                  e.currentTarget.style.color = "#ffffff";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)";
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                  e.currentTarget.style.color = "rgba(255,255,255,0.6)";
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
                 }}
               >
-                {p}
+                {p.icon}
               </span>
             ))}
           </div>

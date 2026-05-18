@@ -14,9 +14,9 @@ export default function VipExperience() {
           muted
           loop
           playsInline
-          className="object-cover w-full h-full scale-[1.02]"
+          className="object-cover w-full h-full scale-[1.02] opacity-40"
         >
-          <source src="/videos/bentley-bg.mp4" type="video/mp4" />
+          <source src="https://videos.pexels.com/video-files/4488931/4488931-hd_1920_1080_25fps.mp4" type="video/mp4" />
         </video>
         
         {/* Gradients to blend with sections */}

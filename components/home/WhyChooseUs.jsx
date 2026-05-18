@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const benefits = [
   {
@@ -179,45 +180,19 @@ export default function WhyChooseUs() {
 
           {/* ── RIGHT: Content ── */}
           <div>
-            {/* Eyebrow */}
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "10px", marginBottom: "24px" }}>
-              <div style={{ width: "32px", height: "1px", background: `linear-gradient(90deg, ${GOLD}, transparent)` }} />
-              <span
-                className="font-body font-semibold uppercase"
-                style={{ fontSize: "10px", color: GOLD, letterSpacing: "0.35em" }}
-              >
-                The Velox Difference
-              </span>
-            </div>
-
-            {/* Heading */}
-            <h2
-              className="font-display font-bold"
-              style={{
-                fontSize: "clamp(2rem, 3.5vw, 3.5rem)",
-                lineHeight: "1.1",
-                color: "#ffffff",
-                marginBottom: "20px",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              Beyond Just{" "}
-              <span className="text-gold-gradient">Renting</span>
-            </h2>
-
-            {/* Subtitle */}
-            <p
-              className="font-body font-light"
-              style={{
-                fontSize: "clamp(14px, 1.2vw, 17px)",
-                lineHeight: "1.85",
-                color: "rgba(232,232,232,0.55)",
-                marginBottom: "48px",
-                maxWidth: "480px",
-              }}
-            >
-              We don&apos;t just hand over the keys — we curate an experience. From booking to drop-off, expect nothing less than perfection.
-            </p>
+            <SectionHeader
+              eyebrow="The Velox Difference"
+              heading={
+                <span>
+                  <span>Beyond Just </span>
+                  <span className="text-gold-gradient">Renting</span>
+                </span>
+              }
+              subtext="We don't just hand over the keys — we curate an experience. From booking to drop-off, expect nothing less than perfection."
+              align="left"
+              light={true}
+              className="mb-48"
+            />
 
             {/* ── 2×2 Benefits grid ── */}
             <div

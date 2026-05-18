@@ -4,12 +4,13 @@ import Link from "next/link";
 import CarCard from "@/components/cars/CarCard";
 import { getFeaturedCars } from "@/lib/utils";
 import cars from "@/data/cars";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function FeaturedCars() {
   const featured = getFeaturedCars(cars).slice(0, 6);
 
   return (
-    <section className="relative bg-[#050505] overflow-hidden" style={{ padding: "140px 0" }}>
+    <section className="relative bg-[#050505] overflow-hidden" style={{ paddingTop: "60px", paddingBottom: "140px" }}>
 
       {/* ── Ambient background atmosphere ── */}
       <div
@@ -33,47 +34,19 @@ export default function FeaturedCars() {
         {/* ── Section Header ── */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
 
-          {/* Left: Title block */}
-          <div className="max-w-2xl">
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-3 mb-6">
-              <div
-                className="w-10 h-px"
-                style={{ background: "linear-gradient(90deg, #c9a84c, transparent)" }}
-              />
-              <span className="text-[10px] font-body font-semibold tracking-[0.35em] uppercase"
-                style={{ color: "#D4AF37" }}>
-                Curated Selection
+          <SectionHeader
+            eyebrow="Curated Selection"
+            heading={
+              <span>
+                <span>Featured </span>
+                <span style={{ color: "#D6B25E" }}>Vehicles</span>
               </span>
-            </div>
-
-            {/* Main heading */}
-            <h2 
-              className="font-display flex items-center gap-3"
-              style={{
-                fontSize: "clamp(56px, 7vw, 88px)",
-                lineHeight: "0.95",
-                fontWeight: "800",
-                letterSpacing: "-3px",
-                marginBottom: "18px",
-              }}
-            >
-              <span className="text-white">Featured</span>
-              <span style={{ color: "#D6B25E" }}>Vehicles</span>
-            </h2>
-
-            {/* Subtitle */}
-            <p className="font-body font-light lg:whitespace-nowrap"
-               style={{
-                 maxWidth: "620px",
-                 color: "rgba(255,255,255,0.72)",
-                 fontSize: "18px",
-                 lineHeight: "1.8",
-               }}
-            >
-              Handpicked from our premium fleet — each car a statement in its own right.
-            </p>
-          </div>
+            }
+            subtext="Handpicked from our premium fleet — each car a statement in its own right."
+            align="left"
+            light={true}
+            className="max-w-2xl"
+          />
 
           {/* Right: CTA button */}
           <Link

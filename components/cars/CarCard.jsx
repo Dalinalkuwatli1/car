@@ -21,7 +21,7 @@ const GOLD = "#D6B25E";
 const FALLBACK_IMAGE = "/images/default-car.jpg";
 
 export default function CarCard({ car, index = 0 }) {
-  const { slug, brand, model, type, pricePerDay, transmission, fuelType, seats, image, available, badge } = car;
+  const { slug, brand, model, type, pricePerDay, transmission = "automatic", fuelType = "petrol", seats, image, available, badge } = car;
 
   const [imgSrc, setImgSrc] = useState(image || FALLBACK_IMAGE);
   const [hovered, setHovered] = useState(false);

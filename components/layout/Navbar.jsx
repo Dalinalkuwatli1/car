@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import SignInButton from "@/components/ui/SignInButton";
 import AuthModal from "@/components/auth/AuthModal";
 import ListYourCarButton from "@/components/ui/ListYourCarButton";
@@ -47,20 +48,23 @@ export default function Navbar() {
   return (
     <>
       {/* ── Main navbar ── */}
-      <header
+      <motion.header
+        initial={{ y: -120, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
         style={{
           position: "fixed",
           top: 0, left: 0, right: 0,
           zIndex: 999,
-          height: "78px",
+          height: scrolled ? "82px" : "96px",
           display: "flex",
           alignItems: "center",
-          transition: "background 0.6s ease, border-color 0.6s ease, box-shadow 0.6s ease, backdrop-filter 0.6s ease",
-          background: "rgba(0,0,0,0.55)",
-          backdropFilter: "blur(40px)",
-          WebkitBackdropFilter: "blur(40px)",
-          borderBottom: "1px solid rgba(255,255,255,0.1)",
-          boxShadow: scrolled ? "0 4px 40px rgba(0,0,0,0.6)" : "none",
+          transition: "height 0.5s cubic-bezier(0.16, 1, 0.3, 1), background 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease, backdrop-filter 0.5s ease",
+          background: scrolled ? "rgba(5,5,5,0.85)" : "rgba(5,5,5,0.45)",
+          backdropFilter: "blur(30px)",
+          WebkitBackdropFilter: "blur(30px)",
+          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.06)" : "1px solid rgba(255,255,255,0.03)",
+          boxShadow: scrolled ? "0 10px 40px rgba(0,0,0,0.7)" : "none",
         }}
       >
         {/* Subtle gold top line — always visible */}
@@ -224,7 +228,7 @@ export default function Navbar() {
           </button>
 
         </div>
-      </header>
+      </motion.header>
 
       {/* ── Mobile drawer ── */}
       <div
@@ -268,7 +272,7 @@ export default function Navbar() {
           }}
         >
           {/* Panel header */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 24px", height: "90px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+          <div style={{ display: "flex", alignItems: "center", justifystyle: "space-between", justifyContent: "space-between", padding: "0 24px", height: "90px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
               <svg style={{ width: "22px", height: "22px", color: GOLD }} fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 21L2 3h5.5L12 11.5L16.5 3H22L12 21z" />
@@ -356,46 +360,53 @@ export default function Navbar() {
   );
 }
 
-/* ── NavLink sub-component with gold underline animation ── */
+/* ── NavLink sub-component with centered 40px luxury gold underline animation ── */
 function NavLink({ href, isActive, onClick, children }) {
   return (
     <Link
       href={href}
       onClick={onClick}
-      className="font-body font-semibold uppercase"
+      className="font-body font-semibold uppercase animate-underline-hover"
       style={{
         position: "relative",
         fontSize: "14px",
-        letterSpacing: "1.2px",
+        letterSpacing: "1.5px",
         textDecoration: "none",
         color: isActive ? GOLD : "rgba(255,255,255,0.75)",
-        transition: "color 0.3s ease",
-        paddingBottom: "2px",
+        transition: "color 0.4s cubic-bezier(0.25, 1, 0.5, 1)",
+        paddingBottom: "4px",
       }}
       onMouseEnter={e => {
         if (!isActive) e.currentTarget.style.color = "#ffffff";
         const bar = e.currentTarget.querySelector(".underline-bar");
-        if (bar && !isActive) { bar.style.width = "100%"; bar.style.opacity = "1"; }
+        if (bar) {
+          bar.style.width = "40px";
+          bar.style.opacity = "1";
+        }
       }}
       onMouseLeave={e => {
         if (!isActive) e.currentTarget.style.color = "rgba(255,255,255,0.75)";
         const bar = e.currentTarget.querySelector(".underline-bar");
-        if (bar && !isActive) { bar.style.width = "0%"; bar.style.opacity = "0"; }
+        if (bar) {
+          bar.style.width = isActive ? "40px" : "0px";
+          bar.style.opacity = isActive ? "1" : "0";
+        }
       }}
     >
       {children}
-      {/* Gold underline bar */}
+      {/* Centered gold underline bar */}
       <span
         className="underline-bar"
         style={{
           position: "absolute",
-          left: 0,
+          left: "50%",
+          transform: "translateX(-50%)",
           bottom: "-8px",
           height: "2px",
           background: GOLD,
-          width: isActive ? "100%" : "0%",
+          width: isActive ? "40px" : "0px",
           opacity: isActive ? 1 : 0,
-          transition: "width 0.35s ease, opacity 0.35s ease",
+          transition: "width 0.4s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease",
           borderRadius: "2px",
         }}
       />

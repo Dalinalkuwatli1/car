@@ -1,18 +1,26 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import cars from "@/data/cars";
 import CarCard from "@/components/cars/CarCard";
 import FilterBar from "@/components/cars/FilterBar";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function CarsListingPage() {
+  const searchParams = useSearchParams();
+  const typeParam = searchParams.get("type") || "all";
+
   const [filters, setFilters] = useState({
-    type: "all",
+    type: typeParam,
     transmission: "all",
     fuelType: "all",
     maxPrice: 1000,
   });
+
+  useEffect(() => {
+    setFilters((prev) => ({ ...prev, type: typeParam }));
+  }, [typeParam]);
 
   const filteredCars = useMemo(() => {
     return cars.filter((car) => {
@@ -33,7 +41,7 @@ export default function CarsListingPage() {
 
       {/* Header Section */}
       <section className="relative z-10 text-center pb-16" style={{ paddingTop: "180px", marginBottom: "80px" }}>
-        <span className="text-[#d4af37] uppercase tracking-[6px] text-sm font-semibold">
+        <span className="eyebrow">
           Premium Fleet
         </span>
 
@@ -42,16 +50,16 @@ export default function CarsListingPage() {
         </h1>
 
         <div className="flex justify-center w-full mt-6">
-          <p className="text-gray-400 text-lg md:text-xl max-w-3xl text-center leading-relaxed">
+          <p className="subtext max-w-3xl text-center text-lg">
             Discover our entire collection of premium vehicles.
             Use the filters to find the perfect match for your next journey.
           </p>
         </div>
       </section>
 
-      <div className="max-w-[1500px] mx-auto grid grid-cols-1 lg:grid-cols-[450px_1fr] gap-16 px-10 relative z-10 pb-32">
+      <div className="max-w-[1500px] mx-auto grid grid-cols-1 lg:grid-cols-[450px_1fr] gap-16 pl-24 pr-10 relative z-10 pb-32">
         {/* Sidebar / Filters */}
-        <div className="w-[320px]" style={{ marginLeft: "140px" }}>
+        <div className="w-[420px] ml-40">
           <div className="sticky top-28">
             <FilterBar
               filters={filters}

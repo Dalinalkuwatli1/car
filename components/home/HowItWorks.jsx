@@ -1,5 +1,7 @@
 "use client";
 
+import SectionHeader from "@/components/ui/SectionHeader";
+
 const steps = [
   {
     number: "01",
@@ -45,11 +47,11 @@ export default function HowItWorks() {
       id="how-it-works"
       style={{
         width: "100%",
-        minHeight: "auto",
+        minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
-        padding: "80px 20px",
+        alignItems: "flex-start",
+        padding: "60px 60px 0px 60px",
         background: "#050505",
         position: "relative",
         overflow: "hidden",
@@ -60,8 +62,8 @@ export default function HowItWorks() {
       <div
         style={{
           position: "absolute",
-          width: "700px",
-          height: "700px",
+          width: "500px",
+          height: "500px",
           background: "rgba(212,175,55,0.06)",
           filter: "blur(140px)",
           top: "50%",
@@ -82,53 +84,14 @@ export default function HowItWorks() {
           zIndex: 10,
         }}
       >
-        {/* Section Header */}
-        <div style={{ marginBottom: "60px" }}>
-          {/* Mini Title */}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "12px", marginBottom: "12px" }}>
-            <div style={{ width: "30px", height: "1px", background: "linear-gradient(90deg, transparent, #D4AF37)" }} />
-            <span
-              className="font-body uppercase"
-              style={{
-                color: "#d4af37",
-                fontSize: "10px",
-                letterSpacing: "4px",
-                fontWeight: "600",
-                position: "relative",
-              }}
-            >
-              SIMPLE PROCESS
-            </span>
-            <div style={{ width: "30px", height: "1px", background: "linear-gradient(90deg, #D4AF37, transparent)" }} />
-          </div>
-
-          {/* Main Title */}
-          <h2
-            className="font-display main-title-responsive"
-            style={{
-              fontSize: "56px",
-              fontWeight: "800",
-              marginTop: "12px",
-              lineHeight: "1.1",
-              color: "white",
-              letterSpacing: "-0.02em",
-            }}
-          >
+        <div className="flex flex-col items-center justify-center text-center w-full" style={{ marginBottom: "40px" }}>
+          <p className="text-[#d4af37] uppercase tracking-[6px] text-xs font-semibold mb-3 font-body">
+            Simple Process
+          </p>
+          <h2 className="text-white font-display font-bold leading-tight tracking-tight mb-4" style={{ fontSize: "clamp(32px, 4vw, 56px)" }}>
             How It <span style={{ color: "#d4af37" }}>Works</span>
           </h2>
-
-          {/* Description */}
-          <p
-            className="font-body desc-responsive"
-            style={{
-              maxWidth: "600px",
-              margin: "20px auto 0",
-              fontSize: "16px",
-              lineHeight: "1.6",
-              color: "rgba(255,255,255,0.75)",
-              fontWeight: "300",
-            }}
-          >
+          <p className="text-zinc-400 text-base sm:text-lg leading-relaxed font-body max-w-2xl mx-auto">
             Renting a premium vehicle should feel effortless. We&apos;ve distilled the process into three simple steps.
           </p>
         </div>
@@ -151,34 +114,34 @@ export default function HowItWorks() {
       </div>
 
       <style>{`
-        @media(max-width: 1200px) {
+        @media(max-width: 1000px) {
           .steps-wrapper-responsive {
-            gap: 30px !important;
+            gap: 70px !important;
           }
           .main-title-responsive {
-            font-size: 50px !important;
+            font-size: 85px !important;
           }
         }
         @media(max-width: 992px) {
           .how-section-responsive {
-            padding: 60px 20px !important;
+            padding: 100px 40px !important;
           }
           .main-title-responsive {
-            font-size: 42px !important;
+            font-size: 70px !important;
           }
           .steps-wrapper-responsive {
-            gap: 30px !important;
+            gap: 60px !important;
           }
           .desc-responsive {
-            font-size: 15px !important;
+            font-size: 20px !important;
           }
         }
         @media(max-width: 600px) {
           .how-section-responsive {
-            padding: 50px 15px !important;
+            padding: 80px 20px !important;
           }
           .main-title-responsive {
-            font-size: 36px !important;
+            font-size: 50px !important;
           }
         }
       `}</style>
@@ -190,7 +153,7 @@ function StepCard({ step, index }) {
   return (
     <div
       style={{
-        width: "240px",
+        width: "280px",
         textAlign: "center",
         position: "relative",
       }}
@@ -200,10 +163,10 @@ function StepCard({ step, index }) {
       <div
         className="icon-box"
         style={{
-          width: "90px",
-          height: "90px",
+          width: "100px",
+          height: "100px",
           margin: "0 auto 25px",
-          borderRadius: "22px",
+          borderRadius: "24px",
           background: "rgba(255,255,255,0.02)",
           border: "1px solid rgba(255,255,255,0.08)",
           display: "flex",
@@ -232,10 +195,10 @@ function StepCard({ step, index }) {
         <div
           style={{
             position: "absolute",
-            top: "-6px",
-            right: "-6px",
-            width: "28px",
-            height: "28px",
+            top: "-10px",
+            right: "-10px",
+            width: "45px",
+            height: "45px",
             borderRadius: "50%",
             background: "linear-gradient(135deg, #c9a84c, #e9c15f)",
             color: "#050505",
@@ -243,7 +206,7 @@ function StepCard({ step, index }) {
             alignItems: "center",
             justifyContent: "center",
             fontWeight: "900",
-            fontSize: "12px",
+            fontSize: "16px",
             boxShadow: "0 5px 15px rgba(201,168,76,0.4)",
           }}
           className="font-display"
@@ -256,10 +219,10 @@ function StepCard({ step, index }) {
       <h3
         className="font-display transition-colors duration-300 group-hover:text-gold"
         style={{
-          fontSize: "22px",
+          fontSize: "24px",
           marginBottom: "12px",
           color: "white",
-          fontWeight: "700",
+          fontWeight: "600",
           letterSpacing: "-0.01em",
         }}
       >
@@ -272,7 +235,7 @@ function StepCard({ step, index }) {
         style={{
           fontSize: "14px",
           lineHeight: "1.7",
-          color: "rgba(255,255,255,0.68)",
+          color: "rgba(255,255,255,0.55)",
           fontWeight: "300",
         }}
       >

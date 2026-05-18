@@ -27,7 +27,8 @@ export default function BrandModal({ brand, isOpen, onClose }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-              className="relative w-full max-w-[800px] bg-[#0A0A0A] border border-white/[0.08] rounded-[24px] p-8 md:p-12 overflow-hidden pointer-events-auto"
+              className="relative w-full max-w-2xl mx-auto my-8 md:my-14 rounded-[32px] border border-white/[0.08] bg-[#0A0A0A] px-8 md:px-16 shadow-[0_0_80px_rgba(0,0,0,0.9)] backdrop-blur-2xl overflow-hidden pointer-events-auto"
+              style={{ paddingTop: "64px", paddingBottom: "64px" }}
             >
               {/* Internal Glow */}
               <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#D4AF37]/[0.05] blur-[100px] rounded-full pointer-events-none" />
