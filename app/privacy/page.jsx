@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function PrivacyPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#050505] pt-32 pb-20 md:pt-40 flex flex-col justify-start">
+    <main className="relative min-h-screen flex items-start md:items-center justify-center overflow-hidden bg-[#050505] pt-36 pb-20 md:py-20">
       
       {/* ── Ambient background atmosphere ── */}
       <div className="absolute inset-0 pointer-events-none">
@@ -42,7 +42,9 @@ export default function PrivacyPage() {
               style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: "1.1" }}
             >
               Privacy &nbsp;
-              <span className="text-[#c9a84c]">Policy</span>
+              <span className="text-transparent bg-clip-text" style={{
+                backgroundImage: "linear-gradient(135deg, #c9a84c 0%, #e9c15f 50%, #b08a2e 100%)",
+              }}>Policy</span>
             </h1>
             
             <p className="font-body font-normal text-white/50 max-w-[600px] mx-auto text-sm leading-relaxed tracking-wide" style={{ marginTop: "40px" }}>
