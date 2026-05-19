@@ -23,7 +23,7 @@ export default function FilterBar({ filters, onChange, total, filtered }) {
   const set = (key, value) => onChange({ ...filters, [key]: value });
 
   return (
-    <div className="backdrop-blur-xl border-red-600 border-4 shadow-[0_25px_60px_rgba(0,0,0,0.6)] rounded-[36px] bg-[#070707]/95 space-y-6 max-w-full" style={{ paddingTop: '40px', paddingBottom: '40px', paddingLeft: '40px', paddingRight: '40px' }}>
+    <div className="backdrop-blur-xl border border-white/8 shadow-[0_25px_60px_rgba(0,0,0,0.6)] rounded-[36px] bg-[#070707]/95 space-y-6 max-w-full" style={{ paddingTop: '40px', paddingBottom: '40px', paddingLeft: '40px', paddingRight: '40px' }}>
 
       {/* ── Header ── */}
       <div className="flex items-center justify-between pb-6 border-b border-white/5">
