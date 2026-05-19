@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import cars from "@/data/cars";
@@ -7,7 +8,7 @@ import CarCard from "@/components/cars/CarCard";
 import FilterBar from "@/components/cars/FilterBar";
 import SectionHeader from "@/components/ui/SectionHeader";
 
-export default function CarsListingPage() {
+function CarsContent() {
   const searchParams = useSearchParams();
   const typeParam = searchParams.get("type") || "all";
 
@@ -100,5 +101,17 @@ export default function CarsListingPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function CarsListingPage() {
+  return (
+    <Suspense fallback={
+      <div className="bg-black min-h-screen flex items-center justify-center">
+        <div className="text-[#D4AF37] text-xl font-semibold animate-pulse">Loading fleet...</div>
+      </div>
+    }>
+      <CarsContent />
+    </Suspense>
   );
 }
