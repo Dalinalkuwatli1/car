@@ -42,9 +42,7 @@ export default function InsurancePage() {
               style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: "1.1" }}
             >
               Insurance &nbsp;
-              <span className="text-transparent bg-clip-text" style={{
-                backgroundImage: "linear-gradient(135deg, #c9a84c 0%, #e9c15f 50%, #b08a2e 100%)",
-              }}>Policy</span>
+              <span className="text-[#c9a84c]">Policy</span>
             </h1>
 
             <p className="font-body font-normal text-white/50 max-w-[600px] mx-auto text-sm leading-relaxed tracking-wide" style={{ marginTop: "40px" }}>
