@@ -41,15 +41,13 @@ export default function TermsPage() {
               className="font-display font-bold text-white tracking-tight"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: "1.1" }}
             >
-              Terms & <span style={{
-                background: "linear-gradient(135deg, #c9a84c 0%, #e9c15f 50%, #b08a2e 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}>Conditions.</span>
+              Terms & &nbsp;
+              <span className="text-transparent bg-clip-text" style={{
+                backgroundImage: "linear-gradient(135deg, #c9a84c 0%, #e9c15f 50%, #b08a2e 100%)",
+              }}>Conditions</span>
             </h1>
 
-            <p className="font-body font-normal text-white/50 max-w-[600px] mx-auto text-sm leading-relaxed tracking-wide" style={{ marginTop: "20px" }}>
+            <p className="font-body font-normal text-white/50 max-w-[600px] mx-auto text-sm leading-relaxed tracking-wide" style={{ marginTop: "40px" }}>
               We provide the most transparent and fair service. Please review the detailed information about rental agreements, liabilities, and rules below.
             </p>
           </div>

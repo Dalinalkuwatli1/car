@@ -41,15 +41,13 @@ export default function PrivacyPage() {
               className="font-display font-bold text-white tracking-tight"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4rem)", lineHeight: "1.1" }}
             >
-              Privacy <span style={{
-                background: "linear-gradient(135deg, #c9a84c 0%, #e9c15f 50%, #b08a2e 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}>Policy.</span>
+              Privacy &nbsp;
+              <span className="text-transparent bg-clip-text" style={{
+                backgroundImage: "linear-gradient(135deg, #c9a84c 0%, #e9c15f 50%, #b08a2e 100%)",
+              }}>Policy</span>
             </h1>
             
-            <p className="font-body font-normal text-white/50 max-w-[600px] mx-auto text-sm leading-relaxed tracking-wide" style={{ marginTop: "20px" }}>
+            <p className="font-body font-normal text-white/50 max-w-[600px] mx-auto text-sm leading-relaxed tracking-wide" style={{ marginTop: "40px" }}>
               We ensure the highest standards of data protection. Please review the detailed information about how we collect, use, and protect your personal data below.
             </p>
           </div>

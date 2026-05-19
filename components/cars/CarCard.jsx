@@ -49,12 +49,12 @@ export default function CarCard({ car, index = 0 }) {
         href={`/cars/${slug}`}
         className="
           group flex flex-col relative overflow-hidden transition-all duration-500 luxury-card
-          w-full max-w-[420px] h-[440px]
+          w-full max-w-[380px] h-[380px]
           backdrop-blur-xl
           bg-white/[0.02]
           border border-white/10
           shadow-[0_0_50px_rgba(212,175,55,0.08)]
-          rounded-[32px]
+          rounded-[24px]
           hover:-translate-y-2
           hover:border-[#D4AF37]/40
           hover:shadow-[0_0_40px_rgba(212,175,55,0.12)]
@@ -76,7 +76,7 @@ export default function CarCard({ car, index = 0 }) {
       />
 
       {/* ══ IMAGE ══════════════════════════════════════ */}
-      <div className="relative w-full shrink-0 overflow-hidden" style={{ height: "200px" }}>
+      <div className="relative w-full shrink-0 overflow-hidden" style={{ height: "180px" }}>
         <Image
           src={imgSrc}
           alt={`${brand} ${model}`}
@@ -149,9 +149,9 @@ export default function CarCard({ car, index = 0 }) {
       </div>
 
       {/* ══ BODY ════════════════════════════════════════ */}
-      <div className="flex flex-col flex-1 space-y-4 p-6">
+      <div className="flex flex-col flex-1 space-y-3 p-5">
 
-        <div className="mb-5">
+        <div className="mb-2">
           <p
             className="font-body font-semibold uppercase mb-1.5"
             style={{ fontSize: "9px", color: GOLD, letterSpacing: "0.24em" }}
@@ -161,10 +161,10 @@ export default function CarCard({ car, index = 0 }) {
           <h3
             className="font-display transition-colors duration-300"
             style={{
-              fontSize: "28px",
+              fontSize: "22px",
               fontWeight: "700",
               letterSpacing: "-0.5px",
-              marginBottom: "40px",
+              marginBottom: "16px",
               color: hovered ? GOLD : "#ffffff",
               lineHeight: "1.1",
             }}
@@ -175,7 +175,7 @@ export default function CarCard({ car, index = 0 }) {
 
         {/* Specs */}
         <div
-          className="flex items-center justify-between py-4 mb-4"
+          className="flex items-center justify-between py-3 mb-2"
           style={{ borderTop: "1px solid rgba(255,255,255,0.06)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}
         >
           <div className="flex items-center gap-1.5">
@@ -203,19 +203,19 @@ export default function CarCard({ car, index = 0 }) {
           {/* Price */}
           <div>
             <p
-              className="font-body font-semibold uppercase mb-1.5"
+              className="font-body font-semibold uppercase mb-1"
               style={{ fontSize: "9px", color: "#525252", letterSpacing: "0.18em" }}
             >
               Daily Rate
             </p>
-            <div className="flex items-end gap-3">
+            <div className="flex items-end gap-2">
               <span
-                className="font-display text-[56px] font-bold leading-none"
+                className="font-display text-[40px] font-bold leading-none"
                 style={{ color: "#ffffff" }}
               >
                 {formatPrice(pricePerDay)}
               </span>
-              <span className="font-body text-zinc-500 text-[18px] mb-2">/ day</span>
+              <span className="font-body text-zinc-500 text-[14px] mb-1">/ day</span>
             </div>
           </div>
 
