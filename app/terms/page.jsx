@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function TermsPage() {
   return (
-    <main className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#050505] py-20">
+    <main className="relative min-h-screen overflow-hidden bg-[#050505] pt-32 pb-20 md:pt-40 flex flex-col justify-start">
 
       {/* ── Ambient background atmosphere ── */}
       <div className="absolute inset-0 pointer-events-none">
