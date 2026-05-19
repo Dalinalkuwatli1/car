@@ -7,7 +7,7 @@ export default function TermsPage() {
   return (
     <main 
       className="relative min-h-screen flex items-start justify-center overflow-hidden bg-[#050505] pb-20"
-      style={{ paddingTop: "220px" }}
+      style={{ paddingTop: "150px" }}
     >
 
       {/* ── Ambient background atmosphere ── */}
