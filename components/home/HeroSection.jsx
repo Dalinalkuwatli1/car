@@ -69,43 +69,74 @@ export default function HeroSection() {
 
           {/* ── Headline ── */}
           <motion.h1
-            className="font-display tracking-tight"
-            style={{ lineHeight: 1.04 }}
+            className="font-display"
+            style={{ lineHeight: 1.0, letterSpacing: "-0.01em" }}
             variants={itemVariants}
           >
-            {/* "Drive Your" — white, extrabold */}
+            {/* "Drive Your" — elegant label above */}
             <span
-              className="block font-extrabold text-white"
-              style={{ fontSize: "clamp(2.3rem, 4.8vw, 4.4rem)" }}
+              className="flex items-center gap-4 font-light text-white/60 uppercase"
+              style={{
+                fontSize: "clamp(0.7rem, 1.1vw, 0.95rem)",
+                letterSpacing: "0.5em",
+                marginBottom: "1rem",
+              }}
             >
+              <span
+                style={{
+                  display: "inline-block",
+                  width: "32px",
+                  height: "1px",
+                  background: "linear-gradient(90deg, #c9a84c, transparent)",
+                }}
+              />
               Drive Your
             </span>
 
-            {/* "Experience." — gold gradient, black weight */}
+            {/* "Experience" — commanding hero word */}
             <span
-              className="block font-black"
+              className="block font-black leading-[0.95]"
               style={{
-                fontSize: "clamp(2.3rem, 4.8vw, 4.4rem)",
-                background: "linear-gradient(135deg, #c9a84c 0%, #e9c15f 48%, #b08a2e 100%)",
+                fontSize: "clamp(4.2rem, 9.5vw, 8.5rem)",
+                background: "linear-gradient(125deg, #e8d48b 0%, #c9a84c 35%, #f5e27a 60%, #9a6f1e 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
+                letterSpacing: "-0.03em",
+                textShadow: "none",
               }}
             >
-              Experience.
+              Experience
             </span>
           </motion.h1>
 
           {/* ── Subtitle ── */}
-          <motion.p
-            className="font-body font-light leading-[1.8] text-white/55"
-            style={{ fontSize: "clamp(14px, 1.6vw, 17px)", maxWidth: "520px" }}
-            variants={itemVariants}
-          >
-            From executive city transfers to unforgettable weekend escapes, discover a curated
-            collection of the world&apos;s finest luxury vehicles designed for comfort, performance,
-            and prestige.
-          </motion.p>
+          <motion.div variants={itemVariants} style={{ maxWidth: "480px" }}>
+            <div
+              style={{
+                width: "1px",
+                height: "100%",
+                position: "absolute",
+                left: 0,
+              }}
+            />
+            <p
+              className="font-body font-light text-white/50 leading-[1.9]"
+              style={{
+                fontSize: "clamp(13px, 1.4vw, 16px)",
+                borderLeft: "1px solid rgba(201,168,76,0.25)",
+                paddingLeft: "1.2rem",
+              }}
+            >
+              From executive city transfers to unforgettable weekend escapes,
+              discover a curated collection of the world&apos;s finest luxury
+              vehicles — designed for{" "}
+              <span style={{ color: "rgba(201,168,76,0.85)", fontWeight: 400 }}>
+                comfort, performance,
+              </span>{" "}
+              and prestige.
+            </p>
+          </motion.div>
 
           {/* ── CTA Buttons — side by side, content-sized ── */}
           <motion.div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto" variants={itemVariants}>
