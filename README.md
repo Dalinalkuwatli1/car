@@ -1,3 +1,4 @@
+![Car Rental Platform](screenshot.png)
 # 🚗 Car Rental Platform
 
 A modern and responsive car rental platform built with Next.js.
