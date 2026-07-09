@@ -1,3 +1,4 @@
+<img width="2559" height="1230" alt="screenshot png" src="https://github.com/user-attachments/assets/442d87b1-cc55-4b00-9eb5-421832dd4d3c" />
 ![Car Rental Platform](screenshot.png)
 # 🚗 Car Rental Platform
 
