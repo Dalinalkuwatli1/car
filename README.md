@@ -6,7 +6,7 @@ A modern and responsive car rental platform built with Next.js.
 
 ## 🌐 Live Demo
 
-https://car-liard-five.vercel.app
+https://[car-liard-five.vercel.app](https://car-7its.vercel.app/)
 
 ## ✨ Features
 
